@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selection = 1
+    @State var loginDone = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if !loginDone {
+            LoginView(willMoveToNextScreen: $loginDone)
+        } else {
+            AllTabsView()
+        }
     }
 }
 

@@ -11,6 +11,11 @@
 		0563277F2731BE8500388A4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563277E2731BE8500388A4B /* ContentView.swift */; };
 		056327812731BE8900388A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056327802731BE8900388A4B /* Assets.xcassets */; };
 		056327842731BE8900388A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056327832731BE8900388A4B /* Preview Assets.xcassets */; };
+		0563278B2731C72200388A4B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563278A2731C72200388A4B /* LoginView.swift */; };
+		0563278D2731CB5E00388A4B /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563278C2731CB5E00388A4B /* PasswordView.swift */; };
+		0563278F2731D8F100388A4B /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563278E2731D8F100388A4B /* LoginError.swift */; };
+		056327912731E3F100388A4B /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056327902731E3F000388A4B /* CustomAlert.swift */; };
+		056327932731E6C800388A4B /* AllTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056327922731E6C800388A4B /* AllTabsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		0563277E2731BE8500388A4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		056327802731BE8900388A4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		056327832731BE8900388A4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0563278A2731C72200388A4B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0563278C2731CB5E00388A4B /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		0563278E2731D8F100388A4B /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		056327902731E3F000388A4B /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		056327922731E6C800388A4B /* AllTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTabsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,11 @@
 			children = (
 				0563277C2731BE8500388A4B /* TripleSApp.swift */,
 				0563277E2731BE8500388A4B /* ContentView.swift */,
+				0563278A2731C72200388A4B /* LoginView.swift */,
+				0563278C2731CB5E00388A4B /* PasswordView.swift */,
+				0563278E2731D8F100388A4B /* LoginError.swift */,
+				056327922731E6C800388A4B /* AllTabsView.swift */,
+				056327902731E3F000388A4B /* CustomAlert.swift */,
 				056327802731BE8900388A4B /* Assets.xcassets */,
 				056327822731BE8900388A4B /* Preview Content */,
 			);
@@ -137,8 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0563278B2731C72200388A4B /* LoginView.swift in Sources */,
 				0563277F2731BE8500388A4B /* ContentView.swift in Sources */,
+				0563278F2731D8F100388A4B /* LoginError.swift in Sources */,
+				056327912731E3F100388A4B /* CustomAlert.swift in Sources */,
 				0563277D2731BE8500388A4B /* TripleSApp.swift in Sources */,
+				0563278D2731CB5E00388A4B /* PasswordView.swift in Sources */,
+				056327932731E6C800388A4B /* AllTabsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
