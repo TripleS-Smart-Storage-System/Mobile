@@ -9,10 +9,13 @@ import SwiftUI
 
 struct LoginView: View {
     @Binding var willMoveToNextScreen: Bool
+
+    @State var FirstName: String = ""
+    @State var LastName: String = ""
+    @State var Email: String = ""
     
-    @State var username: String = ""
-    @State var password: String = ""
-    @State var passwordConf: String = ""
+    @State var Password: String = ""
+    @State var PasswordConf: String = ""
     
     @State var isSecuredFirst: Bool = true
     @State var isSecuredSecond: Bool = true
@@ -25,12 +28,20 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 40) {
-                TextField("Username", text: $username)
+                if isRegistration {
+                    TextField("First name", text: $FirstName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .font(.title)
+                    TextField("Last name", text: $LastName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .font(.title)
+                }
+                TextField("Email", text: $Email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .font(.title)
-                PasswordView(isConf: false, isSecured: $isSecuredFirst, password: $password)
+                PasswordView(isConf: false, isSecured: $isSecuredFirst, password: $Password)
                 if isRegistration {
-                    PasswordView(isConf: true, isSecured: $isSecuredSecond, password: $passwordConf)
+                    PasswordView(isConf: true, isSecured: $isSecuredSecond, password: $PasswordConf)
                 }
                 HStack {
                     if !isRegistration {
@@ -64,7 +75,7 @@ struct LoginView: View {
                         }
                         Spacer()
                         Button(action: {
-                            isRegistration = true
+                            changeLoginView()
                         }) {
                             Text("Registration")
                                 .font(.title)
@@ -84,7 +95,7 @@ struct LoginView: View {
                         }
                         Spacer()
                         Button(action:{
-                            isRegistration = false
+                            changeLoginView()
                         }) {
                             Text("Back")
                                 .font(.title)
@@ -99,46 +110,54 @@ struct LoginView: View {
     }
     
     func login() throws {
-        let name = username
-        let pass = password
+        let email = Email
+        let pass = Password
         
-        if name.isEmpty || pass.isEmpty {
+        if email.isEmpty || pass.isEmpty {
             throw LoginError.incompleteForm
         }
         if pass.count < 8 {
             throw LoginError.incorrectPasswordLength
         }
-        if name.uppercased() != name.lowercased() {
+        if email.uppercased() != email.lowercased() {
             throw LoginError.invalidUsername
         }
         
-        if name == "1111" && pass.count == 8 { // check existance of user
+        if email == "1111" && pass.count == 8 { // check existance of user
             willMoveToNextScreen = true
         }
     }
         
     func registration() throws {
-        let name = username
-        let pass = password
-        let pass2 = passwordConf
+        let email = Email
+        let pass = Password
+        let pass2 = PasswordConf
         
-        if name.isEmpty || pass.isEmpty || pass2.isEmpty {
+        if email.isEmpty || pass.isEmpty || pass2.isEmpty {
             throw LoginError.incompleteForm
         }
         if pass.count < 8 && pass2.count < 8 {
             throw LoginError.incorrectPasswordLength
         }
-        if name.uppercased() != name.lowercased() {
+        if email.uppercased() != email.lowercased() {
             throw LoginError.invalidUsername
         }
         if pass != pass2 {
             throw LoginError.mismatchedPasswords
         }
-        if name == "1111" && pass.count == 8 { // check existance of userA*I
+        if email == "1111" && pass.count == 8 { // check existance of userA*I
             // adding user to db
             willMoveToNextScreen = true
         }
-
+    }
+    
+    private func changeLoginView() {
+        isRegistration.toggle()
+        FirstName = ""
+        LastName = ""
+        Email = ""
+        Password = ""
+        PasswordConf = ""
     }
 }
 
