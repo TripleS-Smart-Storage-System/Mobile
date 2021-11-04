@@ -19,6 +19,14 @@ struct WarehouseView: View {
         }
     }
     
+    @State var newProduct: Supply? = nil {
+        willSet {
+            if let prod = newProduct {
+                dataSupplies.append(prod)
+            }
+        }
+    }
+    
     var body: some View {
         if isDataParsed {
             VStack {
@@ -43,13 +51,21 @@ struct WarehouseView: View {
                             Text(String(supply.product.shelfLife))
                         }
                     }
+                    if let prod = newProduct {
+                        HStack {
+                            Text(prod.product.name)
+                            Spacer()
+                            Text(String(prod.amount))
+                            Text(prod.product.unit.rawValue)
+                            Spacer()
+                            Text(String(prod.product.shelfLife))
+                        }
+                    }
                 }
                 .navigationTitle("Warehouse")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            updateData()
-                        }, label: {
+                        NavigationLink(destination: CreateNewSupplyView(newProduct: self.$newProduct), label: {
                             Image(systemName: "plus.viewfinder").font(.title)
                         })
                     }
@@ -102,7 +118,7 @@ func loadData(completion: @escaping ([Supply]?, Error?)->Void) {
 }
 
 let testData:[Supply] = [Supply(id: UUID(), product: Product(name: "FirstProd", description: "nice first product, long description, really long", unit: .kg, shelfLife: 5), productionDate: Date(), amount: 25.5),
-                         Supply(id: UUID(), product: Product(name: "SecondProd", description: "nice second product, long description, really long", unit: .ml, shelfLife: 4), productionDate: Date(), amount: 28.5),
+                         Supply(id: UUID(), product: Product(name: "SecondProd", description: "nice second product, long description, really long", unit: Unit(rawValue: "ml") ?? .ml, shelfLife: 4), productionDate: Date(), amount: 28.5),
                          Supply(id: UUID(), product: Product(name: "ThirdProd", description: "nice third product, long description, really long", unit: .kg, shelfLife: 7), productionDate: Date(), amount: 12.5),
                          Supply(id: UUID(), product: Product(name: "ForthProd", description: "nice forth product, long description, really long", unit: .kg, shelfLife: 5), productionDate: Date(), amount: 2.5),
                          Supply(id: UUID(), product: Product(name: "FifthProd", description: "nice fifth product, long description, really long", unit: .pc, shelfLife: 50), productionDate: Date(), amount: 5)]
