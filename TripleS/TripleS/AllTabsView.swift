@@ -8,8 +8,56 @@
 import SwiftUI
 
 struct AllTabsView: View {
+    
+    @State var selection = 1
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: $selection) {
+            // 1
+            NavigationView {
+                WarehouseView()
+            }.tabItem {
+                Image(systemName: "house")
+                Text("Warehouse")
+            }
+            .tag(1)
+            
+            // 2
+            NavigationView {
+                Text("Second")
+            }.tabItem {
+                Image(systemName: "timer")
+                Text("Expire date")
+            }
+            .tag(2)
+            
+            // 3
+            NavigationView {
+                Text("Third")
+            }.tabItem {
+                Image(systemName: "qrcode.viewfinder")
+                Text("QR code")
+            }
+            .tag(3)
+            
+            // 4
+            NavigationView {
+                Text("Forth")
+            }.tabItem {
+                Image(systemName: "list.bullet.rectangle.portrait")
+                Text("Catalog")
+            }
+            .tag(4)
+            
+            // 5
+            NavigationView {
+                Text("Fifth")
+            }.tabItem {
+                Image(systemName: "person.fill")
+                Text("Profile")
+            }
+            .tag(5)
+        }
     }
 }
 
