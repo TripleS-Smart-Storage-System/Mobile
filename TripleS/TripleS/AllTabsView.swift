@@ -10,7 +10,6 @@ import SwiftUI
 struct AllTabsView: View {
     
     @State var selection = 1
-    
     var body: some View {
         TabView(selection: $selection) {
             // 1

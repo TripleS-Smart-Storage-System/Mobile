@@ -17,6 +17,7 @@
 		056327912731E3F100388A4B /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056327902731E3F000388A4B /* CustomAlert.swift */; };
 		056327932731E6C800388A4B /* AllTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056327922731E6C800388A4B /* AllTabsView.swift */; };
 		0563279527332F0E00388A4B /* WarehouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563279427332F0E00388A4B /* WarehouseView.swift */; };
+		05632797273363CD00388A4B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05632796273363CD00388A4B /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		056327902731E3F000388A4B /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		056327922731E6C800388A4B /* AllTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTabsView.swift; sourceTree = "<group>"; };
 		0563279427332F0E00388A4B /* WarehouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseView.swift; sourceTree = "<group>"; };
+		05632796273363CD00388A4B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				056327922731E6C800388A4B /* AllTabsView.swift */,
 				056327902731E3F000388A4B /* CustomAlert.swift */,
 				0563279427332F0E00388A4B /* WarehouseView.swift */,
+				05632796273363CD00388A4B /* Product.swift */,
 				056327802731BE8900388A4B /* Assets.xcassets */,
 				056327822731BE8900388A4B /* Preview Content */,
 			);
@@ -157,6 +160,7 @@
 			files = (
 				0563278B2731C72200388A4B /* LoginView.swift in Sources */,
 				0563277F2731BE8500388A4B /* ContentView.swift in Sources */,
+				05632797273363CD00388A4B /* Product.swift in Sources */,
 				0563278F2731D8F100388A4B /* LoginError.swift in Sources */,
 				056327912731E3F100388A4B /* CustomAlert.swift in Sources */,
 				0563279527332F0E00388A4B /* WarehouseView.swift in Sources */,
