@@ -9,8 +9,6 @@ import SwiftUI
 
 struct CreateNewSupplyView: View {
     
-    @Binding var newProduct: Supply?
-    
     @State var Name: String = ""
     @State var Description: String = ""
     @State var ShelfLife: String = ""
@@ -18,6 +16,8 @@ struct CreateNewSupplyView: View {
     @State var Unit: String = ""
     
     @State var isDone = false
+    
+    var complition: (Supply?) -> Void
     
     var body: some View {
         VStack(alignment: .center, spacing: 40) {
@@ -54,7 +54,8 @@ struct CreateNewSupplyView: View {
     
     private func Add() {
         //here will be server request
-        newProduct = Supply(id: UUID(), product: Product(name: Name, description: Description, unit: TripleS.Unit(rawValue: Unit) ?? .pc, shelfLife: Double(ShelfLife) ?? 0), productionDate: Date(), amount: Double(Amount) ?? 0)
+//        newProduct = Supply(id: UUID(), product: Product(name: Name, description: Description, unit: TripleS.Unit(rawValue: Unit) ?? .pc, shelfLife: Double(ShelfLife) ?? 0), productionDate: Date(), amount: Double(Amount) ?? 0)
+        complition(Supply(id: UUID(), product: Product(name: Name, description: Description, unit: TripleS.Unit(rawValue: Unit) ?? .pc, shelfLife: Double(ShelfLife) ?? 0), productionDate: Date(), amount: Double(Amount) ?? 0))
         isDone.toggle()
         ClearAllFields()
     }
@@ -70,6 +71,8 @@ struct CreateNewSupplyView: View {
 
 struct CreateNewSupplyView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateNewSupplyView(newProduct: .constant(nil))
+        CreateNewSupplyView() { _ in
+            
+        }
     }
 }

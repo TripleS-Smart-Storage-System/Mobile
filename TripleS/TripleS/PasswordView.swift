@@ -33,6 +33,6 @@ struct PasswordView: View {
 
 struct PasswordView_Previews: PreviewProvider {
     static var previews: some View {
-        PasswordView(isConf: false, isSecured: .constant(false), password: .constant(""))
+        PasswordView(isConf: false, isSecured: .constant(true), password: .constant(""))
     }
 }

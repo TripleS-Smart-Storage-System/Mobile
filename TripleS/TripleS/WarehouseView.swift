@@ -19,14 +19,6 @@ struct WarehouseView: View {
         }
     }
     
-    @State var newProduct: Supply? = nil {
-        willSet {
-            if let prod = newProduct {
-                dataSupplies.append(prod)
-            }
-        }
-    }
-    
     var body: some View {
         if isDataParsed {
             VStack {
@@ -51,21 +43,13 @@ struct WarehouseView: View {
                             Text(String(supply.product.shelfLife))
                         }
                     }
-                    if let prod = newProduct {
-                        HStack {
-                            Text(prod.product.name)
-                            Spacer()
-                            Text(String(prod.amount))
-                            Text(prod.product.unit.rawValue)
-                            Spacer()
-                            Text(String(prod.product.shelfLife))
-                        }
-                    }
                 }
                 .navigationTitle("Warehouse")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: CreateNewSupplyView(newProduct: self.$newProduct), label: {
+                        NavigationLink(destination: CreateNewSupplyView() {
+                            dataSupplies.append($0!)
+                        }, label: {
                             Image(systemName: "plus.viewfinder").font(.title)
                         })
                     }

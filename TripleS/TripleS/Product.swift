@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 struct Supply:Identifiable {
     let id: UUID
@@ -19,8 +18,9 @@ struct Product {
     let name: String
     let description: String
     let unit: Unit
-    let shelfLife: Double // create specific dt
+    let shelfLife: TimeInterval // TODO create specific dt
 }
+
 
 enum Unit: String {
     case kg
