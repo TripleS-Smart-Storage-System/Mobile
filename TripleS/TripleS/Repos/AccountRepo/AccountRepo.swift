@@ -15,6 +15,8 @@ public class AccountRepo {
         encoder.keyEncodingStrategy = .convertToSnakeCase
         return encoder
     }()
+    
+    private let sharedBaseUrl: String = "\(SharedAPIConfiguration.baseUrl)/\(SharedAPIConfiguration.api)/\(SharedAPIConfiguration.account)"
 }
 
 // MARK: - Private methods
@@ -31,7 +33,7 @@ private extension AccountRepo {
             let password: String
         }
         
-        guard let url = URL(string: "\(SharedAPIConfiguration.baseUrl)/\(SharedAPIConfiguration.login)")
+        guard let url = URL(string: "\(self.sharedBaseUrl)/\(SharedAPIConfiguration.login)")
         else {
             completion(.failure(AccountRepoError.cannotCastToUrl))
             return
@@ -87,7 +89,7 @@ private extension AccountRepo {
             let password: String
         }
         
-        guard let url = URL(string: "\(SharedAPIConfiguration.baseUrl)/\(SharedAPIConfiguration.register)")
+        guard let url = URL(string: "\(self.sharedBaseUrl)/\(SharedAPIConfiguration.register)")
         else {
             completion(.failure(AccountRepoError.cannotCastToUrl))
             return
