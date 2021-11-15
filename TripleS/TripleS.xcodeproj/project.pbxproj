@@ -21,6 +21,7 @@
 		0563279927337DA900388A4B /* CreateNewSupplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563279827337DA900388A4B /* CreateNewSupplyView.swift */; };
 		0D4790272742D56300E7C9D0 /* AccountRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4790262742D56300E7C9D0 /* AccountRepo.swift */; };
 		0D4790292742D5F000E7C9D0 /* SharedAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */; };
+		0D47902C2742D92000E7C9D0 /* AccountRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47902B2742D92000E7C9D0 /* AccountRepoProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		0563279827337DA900388A4B /* CreateNewSupplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewSupplyView.swift; sourceTree = "<group>"; };
 		0D4790262742D56300E7C9D0 /* AccountRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepo.swift; sourceTree = "<group>"; };
 		0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAPIConfiguration.swift; sourceTree = "<group>"; };
+		0D47902B2742D92000E7C9D0 /* AccountRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepoProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +101,19 @@
 		0D4790252742D4F900E7C9D0 /* Repos */ = {
 			isa = PBXGroup;
 			children = (
-				0D4790262742D56300E7C9D0 /* AccountRepo.swift */,
+				0D47902A2742D90F00E7C9D0 /* AccountRepo */,
 				0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */,
 			);
 			path = Repos;
+			sourceTree = "<group>";
+		};
+		0D47902A2742D90F00E7C9D0 /* AccountRepo */ = {
+			isa = PBXGroup;
+			children = (
+				0D4790262742D56300E7C9D0 /* AccountRepo.swift */,
+				0D47902B2742D92000E7C9D0 /* AccountRepoProtocol.swift */,
+			);
+			path = AccountRepo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +196,7 @@
 				0563277D2731BE8500388A4B /* TripleSApp.swift in Sources */,
 				0D4790292742D5F000E7C9D0 /* SharedAPIConfiguration.swift in Sources */,
 				0D4790272742D56300E7C9D0 /* AccountRepo.swift in Sources */,
+				0D47902C2742D92000E7C9D0 /* AccountRepoProtocol.swift in Sources */,
 				0563278D2731CB5E00388A4B /* PasswordView.swift in Sources */,
 				056327932731E6C800388A4B /* AllTabsView.swift in Sources */,
 			);
