@@ -10,6 +10,11 @@ import SwiftUI
 struct AllTabsView: View {
     
     @State var selection = 1
+    @State var isAnimating = true
+    
+    @State private var image: Image?
+    @State private var showingImagePicker = false
+    
     var body: some View {
         TabView(selection: $selection) {
             // 1
@@ -23,7 +28,7 @@ struct AllTabsView: View {
             
             // 2
             NavigationView {
-                Text("Second")
+                PageControl(numberOfPages: 4, currentPage: $selection)
             }.tabItem {
                 Image(systemName: "timer")
                 Text("Expire date")
@@ -32,7 +37,7 @@ struct AllTabsView: View {
             
             // 3
             NavigationView {
-                Text("Third")
+                ActivityIndicator(isAnimating: $isAnimating)
             }.tabItem {
                 Image(systemName: "qrcode.viewfinder")
                 Text("QR code")
@@ -41,7 +46,16 @@ struct AllTabsView: View {
             
             // 4
             NavigationView {
-                Text("Forth")
+                VStack {
+                    image?.resizable()
+                        .scaledToFit()
+                    Button("Select Image") {
+                        self.showingImagePicker = true
+                    }
+                }
+                .sheet(isPresented: $showingImagePicker) {
+                    PageViewController()
+                }
             }.tabItem {
                 Image(systemName: "list.bullet.rectangle.portrait")
                 Text("Catalog")
