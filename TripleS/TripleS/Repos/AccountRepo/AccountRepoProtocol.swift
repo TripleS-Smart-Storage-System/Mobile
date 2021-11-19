@@ -2,10 +2,12 @@ import Foundation
 
 public protocol AccountAPIProtocol: AnyObject {
     
+    typealias UserToken = String
+    
     func login(
         email: String,
         password: String,
-        completion: @escaping (Swift.Result<Void, Swift.Error>) -> Void
+        completion: @escaping (Swift.Result<UserToken, Swift.Error>) -> Void
     )
     
     func register(
@@ -13,6 +15,6 @@ public protocol AccountAPIProtocol: AnyObject {
         surname: String,
         email: String,
         password: String,
-        completion: @escaping (Swift.Result<Void, Swift.Error>) -> Void
+        completion: @escaping (Swift.Result<UserToken, Swift.Error>) -> Void
     )
 }

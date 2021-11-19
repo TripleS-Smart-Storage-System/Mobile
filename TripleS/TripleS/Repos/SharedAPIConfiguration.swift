@@ -16,3 +16,19 @@ public enum SharedAPIConfiguration {
     static let units: String = "units"
     static let users: String = "users"
 }
+
+// MARK: - Public JSON coder
+
+/// Snake case JSON encoder
+public let jsonEncoder: JSONEncoder = {
+    let encoder: JSONEncoder = .init()
+    encoder.keyEncodingStrategy = .convertToSnakeCase
+    return encoder
+}()
+
+/// Snake case JSON decoder
+public let jsonDecoder: JSONDecoder = {
+    let decoder: JSONDecoder = .init()
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    return decoder
+}()
