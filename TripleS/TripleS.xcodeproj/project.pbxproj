@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		053589602745664100FBB5DF /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535895F2745664100FBB5DF /* BarcodeViewController.swift */; };
+		053589602745664100FBB5DF /* BarcodeReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535895F2745664100FBB5DF /* BarcodeReaderVC.swift */; };
+		053589622747DB9800FBB5DF /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589612747DB9800FBB5DF /* BarcodeReaderViewController.swift */; };
 		0563277D2731BE8500388A4B /* TripleSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563277C2731BE8500388A4B /* TripleSApp.swift */; };
 		0563277F2731BE8500388A4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563277E2731BE8500388A4B /* ContentView.swift */; };
 		056327812731BE8900388A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056327802731BE8900388A4B /* Assets.xcassets */; };
@@ -23,7 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0535895F2745664100FBB5DF /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
+		0535895F2745664100FBB5DF /* BarcodeReaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderVC.swift; sourceTree = "<group>"; };
+		053589612747DB9800FBB5DF /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		056327792731BE8500388A4B /* TripleS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripleS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0563277C2731BE8500388A4B /* TripleSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripleSApp.swift; sourceTree = "<group>"; };
 		0563277E2731BE8500388A4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,7 +81,8 @@
 				0563279427332F0E00388A4B /* WarehouseView.swift */,
 				0563279827337DA900388A4B /* CreateNewSupplyView.swift */,
 				05632796273363CD00388A4B /* Product.swift */,
-				0535895F2745664100FBB5DF /* BarcodeViewController.swift */,
+				0535895F2745664100FBB5DF /* BarcodeReaderVC.swift */,
+				053589612747DB9800FBB5DF /* BarcodeReaderViewController.swift */,
 				056327802731BE8900388A4B /* Assets.xcassets */,
 				056327822731BE8900388A4B /* Preview Content */,
 			);
@@ -172,8 +175,9 @@
 				056327912731E3F100388A4B /* CustomAlert.swift in Sources */,
 				0563279527332F0E00388A4B /* WarehouseView.swift in Sources */,
 				0563277D2731BE8500388A4B /* TripleSApp.swift in Sources */,
+				053589622747DB9800FBB5DF /* BarcodeReaderViewController.swift in Sources */,
 				0563278D2731CB5E00388A4B /* PasswordView.swift in Sources */,
-				053589602745664100FBB5DF /* BarcodeViewController.swift in Sources */,
+				053589602745664100FBB5DF /* BarcodeReaderVC.swift in Sources */,
 				056327932731E6C800388A4B /* AllTabsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +311,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TripleS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app need to use your camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -335,6 +340,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TripleS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app need to use your camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

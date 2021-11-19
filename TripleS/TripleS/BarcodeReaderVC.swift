@@ -8,70 +8,66 @@
 import SwiftUI
 import UIKit
 
-struct ActivityIndicator: UIViewRepresentable {
-    @Binding var isAnimating: Bool
-    
-    func makeUIView(context: Context) -> UIActivityIndicatorView {
-        let v = UIActivityIndicatorView()
-        return v
-    }
-    
-    func updateUIView(_ activityIndicator: UIActivityIndicatorView, context: Context) {
-        isAnimating ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
-    }
-}
 
-struct PageControl: UIViewRepresentable {
-    var numberOfPages: Int
-    @Binding var currentPage: Int
+
+struct BarcodeReaderVC: UIViewControllerRepresentable {
+    
+    @Binding var qrCode: String?
+    
+    func makeUIViewController(context: Context) -> BarcodeReaderViewController {
+        let reader = BarcodeReaderViewController()
+        return reader
+    }
+    
+    func updateUIViewController(_ uiViewController: BarcodeReaderViewController, context: Context) {
+    }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+        Coordinator()
     }
     
-    func makeUIView(context: Context) -> UIPageControl {
-        let pageControl = UIPageControl()
-        pageControl.numberOfPages = numberOfPages
-        pageControl.addTarget(context.coordinator,
-                              action: #selector(Coordinator.updateCurrentPage(sender:)),
-                              for: .valueChanged)
-        return pageControl
-    }
-    
-    func updateUIView(_ pageControl: UIPageControl, context: Context) {
-        pageControl.currentPage = currentPage
-    }
-    
-    class Coordinator: NSObject {
-        var pageControl: PageControl
+    class Coordinator: NSObject, UINavigationControllerDelegate {
         
-        init(_ pageControl: PageControl) {
-            self.pageControl = pageControl
-        }
-        
-        @objc func updateCurrentPage(sender: UIPageControl) {
-            pageControl.currentPage = sender.currentPage
-        }
     }
 }
 
-struct PageViewController: UIViewControllerRepresentable {
-  
+
+// MARK: - ActivityIndicator
+//
+//ActivityIndicator(isAnimating: $isAnimating)
+//
+//struct ActivityIndicator: UIViewRepresentable {
+//    @Binding var isAnimating: Bool
+//
+//    func makeUIView(context: Context) -> UIActivityIndicatorView {
+//        return UIActivityIndicatorView()
+//    }
+//
+//    func updateUIView(_ activityIndicator: UIActivityIndicatorView, context: Context) {
+//        isAnimating ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+//    }
+//}
+
+
+// MARK: - PageViewController
+
+//struct PageViewController: UIViewControllerRepresentable {
+//
 //    var controllers: [UIViewController]
 //    @Binding var currentPage: Int
-    
+//
 //    func makeCoordinator() -> Coordinator {
 //        Coordinator(self)
 //    }
-    
-    func makeUIViewController(context: UIViewControllerRepresentableContext<PageViewController>) -> UIImagePickerController {
-        let picker = UIImagePickerController()
-        return picker
-    }
-    
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<PageViewController>) {
-    }
-    
+//
+//    func makeUIViewController(context: UIViewControllerRepresentableContext<PageViewController>) -> UIImagePickerController {
+//        let picker = UIImagePickerController()
+//        return picker
+//    }
+//
+//    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<PageViewController>) {
+//    }
+//
 //    class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 //        var parent: PageViewController
 //
@@ -114,5 +110,4 @@ struct PageViewController: UIViewControllerRepresentable {
 //            }
 //        }
 //    }
-}
-
+//}

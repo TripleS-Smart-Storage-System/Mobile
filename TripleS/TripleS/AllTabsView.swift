@@ -12,8 +12,8 @@ struct AllTabsView: View {
     @State var selection = 1
     @State var isAnimating = true
     
-    @State private var image: Image?
-    @State private var showingImagePicker = false
+    @State private var qrCode: String?
+    @State private var showQRCodeReader = false
     
     var body: some View {
         TabView(selection: $selection) {
@@ -28,7 +28,7 @@ struct AllTabsView: View {
             
             // 2
             NavigationView {
-                PageControl(numberOfPages: 4, currentPage: $selection)
+                Text("Second")
             }.tabItem {
                 Image(systemName: "timer")
                 Text("Expire date")
@@ -37,7 +37,15 @@ struct AllTabsView: View {
             
             // 3
             NavigationView {
-                ActivityIndicator(isAnimating: $isAnimating)
+                VStack {
+                    Text(qrCode ?? "Empty string")
+                    Button("Read QR code") {
+                        self.showQRCodeReader = true
+                    }
+                }
+                .fullScreenCover(isPresented: $showQRCodeReader) {
+                    BarcodeReaderVC(qrCode: $qrCode)
+                }
             }.tabItem {
                 Image(systemName: "qrcode.viewfinder")
                 Text("QR code")
@@ -46,16 +54,7 @@ struct AllTabsView: View {
             
             // 4
             NavigationView {
-                VStack {
-                    image?.resizable()
-                        .scaledToFit()
-                    Button("Select Image") {
-                        self.showingImagePicker = true
-                    }
-                }
-                .sheet(isPresented: $showingImagePicker) {
-                    PageViewController()
-                }
+                Text("Forth")
             }.tabItem {
                 Image(systemName: "list.bullet.rectangle.portrait")
                 Text("Catalog")
