@@ -44,6 +44,7 @@ struct CreateNewSupplyView: View {
                     .font(.title)
             }
             .alert(isPresented: $isDone) {
+                // 2 вот тут вместо алерта должны происходить какие то вещи
                 Alert(title: Text("New product created"),
                       message: Text("You successfully added new product to warehouse, now back to work"),
                       dismissButton: .default(Text("Ok")))
@@ -53,6 +54,7 @@ struct CreateNewSupplyView: View {
     }
     
     private func Add() {
+        //1- здесь должено быть добавление, делается вызов комплишена, хз пока как это интегрировать по уму
         //here will be server request
 //        newProduct = Supply(id: UUID(), product: Product(name: Name, description: Description, unit: TripleS.Unit(rawValue: Unit) ?? .pc, shelfLife: Double(ShelfLife) ?? 0), productionDate: Date(), amount: Double(Amount) ?? 0)
         complition(Supply(id: UUID(), product: Product(name: Name, description: Description, unit: TripleS.Unit(rawValue: Unit) ?? .pc, shelfLife: Double(ShelfLife) ?? 0), productionDate: Date(), amount: Double(Amount) ?? 0))

@@ -53,6 +53,9 @@ struct ChangeProfileView: View {
                         return Alert(title: Text("Are you sure you want to change your profile info?"), message: Text("All your previous information will be lost"), primaryButton: .default(Text("Yes")) {
                             user = userWithChanges
                             self.dismiss()
+                            // здесь вместо self.dismiss() должна быть отправка запроса на изменение профиля пользователя
+                            // в зависимости от этого должно быть действие в 54 - выполнено или нет
+                            // тут UI под это дело пока не готов, но можно будет настроить
                         }, secondaryButton: .cancel(){
                             userWithChanges = user
                         })
