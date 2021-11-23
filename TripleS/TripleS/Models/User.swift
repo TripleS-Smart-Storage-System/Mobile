@@ -7,12 +7,16 @@
 
 import Foundation
 
-struct User: Identifiable {
+struct User: Equatable {
     let id: String
     var name: String
     var surname: String
     let nickname: String
     let roles: [Role]
+    
+    static func ==(lhs: User, rhs: User) -> Bool {
+        return lhs.surname == rhs.surname && lhs.name == rhs.name
+    }
 }
 
 struct Role: Identifiable {

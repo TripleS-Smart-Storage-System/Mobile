@@ -14,6 +14,7 @@
 		0535896A274C025000FBB5DF /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05358969274C025000FBB5DF /* ChangePasswordView.swift */; };
 		0535896C274C063000FBB5DF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535896B274C063000FBB5DF /* User.swift */; };
 		05358977274D50FF00FBB5DF /* PasswordChangeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05358976274D50FF00FBB5DF /* PasswordChangeError.swift */; };
+		0535897A274D5DA900FBB5DF /* ProfileChangeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05358979274D5DA900FBB5DF /* ProfileChangeError.swift */; };
 		0563277D2731BE8500388A4B /* TripleSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563277C2731BE8500388A4B /* TripleSApp.swift */; };
 		0563277F2731BE8500388A4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563277E2731BE8500388A4B /* ContentView.swift */; };
 		056327812731BE8900388A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056327802731BE8900388A4B /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		05358969274C025000FBB5DF /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		0535896B274C063000FBB5DF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		05358976274D50FF00FBB5DF /* PasswordChangeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeError.swift; sourceTree = "<group>"; };
+		05358979274D5DA900FBB5DF /* ProfileChangeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeError.swift; sourceTree = "<group>"; };
 		056327792731BE8500388A4B /* TripleS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripleS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0563277C2731BE8500388A4B /* TripleSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripleSApp.swift; sourceTree = "<group>"; };
 		0563277E2731BE8500388A4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,9 +83,8 @@
 			children = (
 				05632796273363CD00388A4B /* Product.swift */,
 				0535896B274C063000FBB5DF /* User.swift */,
-				0563278E2731D8F100388A4B /* LoginError.swift */,
-				05358976274D50FF00FBB5DF /* PasswordChangeError.swift */,
 				056327902731E3F000388A4B /* CustomAlert.swift */,
+				05358978274D5D8200FBB5DF /* Errors */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -112,6 +113,16 @@
 				05358963274BFD6E00FBB5DF /* ProfileView.swift */,
 			);
 			path = TabMenu;
+			sourceTree = "<group>";
+		};
+		05358978274D5D8200FBB5DF /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				0563278E2731D8F100388A4B /* LoginError.swift */,
+				05358979274D5DA900FBB5DF /* ProfileChangeError.swift */,
+				05358976274D50FF00FBB5DF /* PasswordChangeError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		056327702731BE8500388A4B = {
@@ -238,6 +249,7 @@
 				053589622747DB9800FBB5DF /* BarcodeReaderViewController.swift in Sources */,
 				0563278D2731CB5E00388A4B /* PasswordView.swift in Sources */,
 				053589602745664100FBB5DF /* BarcodeReaderVC.swift in Sources */,
+				0535897A274D5DA900FBB5DF /* ProfileChangeError.swift in Sources */,
 				056327932731E6C800388A4B /* AllTabsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

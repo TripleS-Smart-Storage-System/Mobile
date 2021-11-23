@@ -39,20 +39,20 @@ struct ProfileView: View {
             .font(.title)
             Spacer()
             HStack {
-                Spacer()
-                NavigationLink(destination: ChangeProfileView(user: $user)) {
+                NavigationLink(destination: ChangeProfileView($user)) {
                     Image(systemName: "folder.badge.person.crop")
-                    Text("Change Info")
+                        .font(.system(size:35))
+                    Text("Change\nInformation")
                 }
                 Spacer()
                 NavigationLink(destination: ChangePasswordView()) {
                     Image(systemName: "lock.shield")
-                    Text("Set Password")
+                        .font(.system(size:40))
+                    Text("Change\nPassword")
                 }
-                Spacer()
             }
             .buttonStyle(.bordered)
-            .font(.title3)
+            .font(.title2)
             .frame(height: 250)
         }
         .navigationTitle("Profile")
