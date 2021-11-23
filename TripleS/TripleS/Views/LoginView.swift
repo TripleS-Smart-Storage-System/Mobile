@@ -113,19 +113,35 @@ struct LoginView: View {
         let email = Email
         let pass = Password
         
-        if email.isEmpty || pass.isEmpty {
-            throw LoginError.incompleteForm
-        }
-        if pass.count < 8 {
-            throw LoginError.incorrectPasswordLength
-        }
-        if email.uppercased() != email.lowercased() {
-            throw LoginError.invalidUsername
-        }
+//        if email.isEmpty || pass.isEmpty {
+//            throw LoginError.incompleteForm
+//        }
+//        if pass.count < 8 {
+//            throw LoginError.incorrectPasswordLength
+//        }
+//        if email.uppercased() != email.lowercased() {
+//            throw LoginError.invalidUsername
+//        }
         
-        if email == "1111" && pass.count == 8 { // check existance of user
-            willMoveToNextScreen = true
-        }
+        accountWorker.login(
+            email: email,
+            password: Password,
+            completion: {(result) in
+                
+                switch result {
+                    
+                case .success():
+                    willMoveToNextScreen = true
+                    
+                case .failure(let error):
+                    // TODO: - handle error
+                    print("\(#function)): \(error)")
+                }
+            }
+        )
+//        if email == "1111" && pass.count == 8 { // check existance of user
+//            willMoveToNextScreen = true
+//        }
         // здесь должна быть проверка на существование профиля на сервере и проверка ответа, можно добавить выбросы разных ошибок и захендлить в месте вызова этой функции в этом же файле
     }
         
@@ -134,22 +150,41 @@ struct LoginView: View {
         let pass = Password
         let pass2 = PasswordConf
         
-        if email.isEmpty || pass.isEmpty || pass2.isEmpty {
-            throw LoginError.incompleteForm
-        }
-        if pass.count < 8 && pass2.count < 8 {
-            throw LoginError.incorrectPasswordLength
-        }
-        if email.uppercased() != email.lowercased() {
-            throw LoginError.invalidUsername
-        }
-        if pass != pass2 {
-            throw LoginError.mismatchedPasswords
-        }
-        if email == "1111" && pass.count == 8 { // check existance of userA*I
-            // adding user to db
-            willMoveToNextScreen = true
-        }
+//        if email.isEmpty || pass.isEmpty || pass2.isEmpty {
+//            throw LoginError.incompleteForm
+//        }
+//        if pass.count < 8 && pass2.count < 8 {
+//            throw LoginError.incorrectPasswordLength
+//        }
+//        if email.uppercased() != email.lowercased() {
+//            throw LoginError.invalidUsername
+//        }
+//        if pass != pass2 {
+//            throw LoginError.mismatchedPasswords
+//        }
+        
+        accountWorker.register(
+            // TODO: - remove hardcoded values
+            name: FirstName,
+            surname: LastName,
+            email: email,
+            password: pass,
+            completion: {(result) in
+                
+                switch result {
+                    
+                case .success():
+                    willMoveToNextScreen = true
+                    
+                case .failure(let error):
+                    // TODO: - handle error
+                    print("\(#function)): \(error)")
+                }
+            }
+        )
+//        if email == "1111" && pass.count == 8 { // check existance of userA*I
+//            // adding user to db
+//        }
         
         // здесь должен быть запрос на добавления профиль на сервере, можно добавить выбросы разных ошибок и захендлить в месте вызова этой функции в этом же файле
     }

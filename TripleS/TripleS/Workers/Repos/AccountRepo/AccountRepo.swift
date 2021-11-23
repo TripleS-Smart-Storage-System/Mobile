@@ -24,7 +24,7 @@ private extension AccountRepo {
     func performLoginTask(
         email: String,
         password: String,
-        completion: @escaping (Result<String, Error>) -> Void
+        completion: @escaping (Result<(Identifier, UserToken), Error>) -> Void
     ) {
         struct LoginModel: Codable {
             let email: String
@@ -43,6 +43,7 @@ private extension AccountRepo {
         )
         
         var request: URLRequest = URLRequest(url: url)
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         do {
             request.httpBody = try jsonEncoder.encode(httpBody)
@@ -76,7 +77,7 @@ private extension AccountRepo {
                         return
                     }
                     
-                    completion(.success(decodedResponse.token))
+                    completion(.success((decodedResponse.id, decodedResponse.token)))
                 } catch let error {
                     completion(.failure(error))
                     return
@@ -92,7 +93,7 @@ private extension AccountRepo {
         surname: String,
         email: String,
         password: String,
-        completion: @escaping (Result<String, Error>) -> Void
+        completion: @escaping (Result<(Identifier, UserToken), Error>) -> Void
     ) {
         struct RegisterModel: Codable {
             let name: String
@@ -116,6 +117,7 @@ private extension AccountRepo {
         
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         do {
             request.httpBody = try jsonEncoder.encode(httpBody)
         } catch let error {
@@ -148,7 +150,7 @@ private extension AccountRepo {
                         return
                     }
                     
-                    completion(.success(decodedResponse.token))
+                    completion(.success((decodedResponse.id, decodedResponse.token)))
                 } catch let error {
                     completion(.failure(error))
                     return
@@ -196,7 +198,7 @@ extension AccountRepo: AccountAPIProtocol {
     public func login(
         email: String,
         password: String,
-        completion: @escaping (Result<UserToken, Error>) -> Void
+        completion: @escaping (Result<(Identifier, UserToken), Error>) -> Void
     ) {
         
         self.performLoginTask(
@@ -211,7 +213,7 @@ extension AccountRepo: AccountAPIProtocol {
         surname: String,
         email: String,
         password: String,
-        completion: @escaping (Result<UserToken, Error>) -> Void
+        completion: @escaping (Result<(Identifier, UserToken), Error>) -> Void
     ) {
         self.performRegisterTask(
             name: name,

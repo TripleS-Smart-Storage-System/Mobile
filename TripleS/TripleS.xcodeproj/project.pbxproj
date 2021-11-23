@@ -27,6 +27,9 @@
 		0D1665A1274D9CAF00E110B6 /* AllTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16659E274D9CAF00E110B6 /* AllTabsView.swift */; };
 		0D1665A3274D9CC100E110B6 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1665A2274D9CC100E110B6 /* PasswordView.swift */; };
 		0D1665A5274D9CCB00E110B6 /* WarehouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1665A4274D9CCB00E110B6 /* WarehouseView.swift */; };
+		0D1665AA274D9EF200E110B6 /* AccountWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1665A9274D9EF200E110B6 /* AccountWorker.swift */; };
+		0D1665AC274D9EFB00E110B6 /* AccountWorkerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1665AB274D9EFB00E110B6 /* AccountWorkerProtocol.swift */; };
+		0D1665AE274DB06300E110B6 /* SharedRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1665AD274DB06300E110B6 /* SharedRequestBuilder.swift */; };
 		0D4790272742D56300E7C9D0 /* AccountRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4790262742D56300E7C9D0 /* AccountRepo.swift */; };
 		0D4790292742D5F000E7C9D0 /* SharedAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */; };
 		0D47902C2742D92000E7C9D0 /* AccountRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47902B2742D92000E7C9D0 /* AccountRepoProtocol.swift */; };
@@ -58,6 +61,9 @@
 		0D16659E274D9CAF00E110B6 /* AllTabsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllTabsView.swift; sourceTree = "<group>"; };
 		0D1665A2274D9CC100E110B6 /* PasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		0D1665A4274D9CCB00E110B6 /* WarehouseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarehouseView.swift; sourceTree = "<group>"; };
+		0D1665A9274D9EF200E110B6 /* AccountWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountWorker.swift; sourceTree = "<group>"; };
+		0D1665AB274D9EFB00E110B6 /* AccountWorkerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountWorkerProtocol.swift; sourceTree = "<group>"; };
+		0D1665AD274DB06300E110B6 /* SharedRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedRequestBuilder.swift; sourceTree = "<group>"; };
 		0D4790262742D56300E7C9D0 /* AccountRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepo.swift; sourceTree = "<group>"; };
 		0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAPIConfiguration.swift; sourceTree = "<group>"; };
 		0D47902B2742D92000E7C9D0 /* AccountRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepoProtocol.swift; sourceTree = "<group>"; };
@@ -189,15 +195,26 @@
 		0D1665A7274D9D7100E110B6 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				0D1665A8274D9EDE00E110B6 /* AccountWorker */,
 				0D4790252742D4F900E7C9D0 /* Repos */,
 			);
 			path = Workers;
+			sourceTree = "<group>";
+		};
+		0D1665A8274D9EDE00E110B6 /* AccountWorker */ = {
+			isa = PBXGroup;
+			children = (
+				0D1665A9274D9EF200E110B6 /* AccountWorker.swift */,
+				0D1665AB274D9EFB00E110B6 /* AccountWorkerProtocol.swift */,
+			);
+			path = AccountWorker;
 			sourceTree = "<group>";
 		};
 		0D4790252742D4F900E7C9D0 /* Repos */ = {
 			isa = PBXGroup;
 			children = (
 				0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */,
+				0D1665AD274DB06300E110B6 /* SharedRequestBuilder.swift */,
 				0D47902A2742D90F00E7C9D0 /* AccountRepo */,
 				0D47902D2747CB6100E7C9D0 /* RolesRepo */,
 				0D479032274D75AA00E7C9D0 /* UserRepo */,
@@ -304,6 +321,7 @@
 			files = (
 				0D166594274D9C6500E110B6 /* BarcodeReaderVC.swift in Sources */,
 				05358968274C014800FBB5DF /* ChangeProfileView.swift in Sources */,
+				0D1665AE274DB06300E110B6 /* SharedRequestBuilder.swift in Sources */,
 				0D16659B274D9C9D00E110B6 /* LoginError.swift in Sources */,
 				05358977274D50FF00FBB5DF /* PasswordChangeError.swift in Sources */,
 				05358964274BFD6E00FBB5DF /* ProfileView.swift in Sources */,
@@ -319,8 +337,10 @@
 				0D1665A1274D9CAF00E110B6 /* AllTabsView.swift in Sources */,
 				0D4790272742D56300E7C9D0 /* AccountRepo.swift in Sources */,
 				0D1665A5274D9CCB00E110B6 /* WarehouseView.swift in Sources */,
+				0D1665AA274D9EF200E110B6 /* AccountWorker.swift in Sources */,
 				0D47902C2742D92000E7C9D0 /* AccountRepoProtocol.swift in Sources */,
 				0D479036274D75D500E7C9D0 /* UserRepoProtocol.swift in Sources */,
+				0D1665AC274D9EFB00E110B6 /* AccountWorkerProtocol.swift in Sources */,
 				0535897A274D5DA900FBB5DF /* ProfileChangeError.swift in Sources */,
 				0D1665A3274D9CC100E110B6 /* PasswordView.swift in Sources */,
 				0D16659F274D9CAF00E110B6 /* CreateNewSupplyView.swift in Sources */,
