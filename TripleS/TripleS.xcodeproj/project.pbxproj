@@ -22,6 +22,10 @@
 		0D4790272742D56300E7C9D0 /* AccountRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4790262742D56300E7C9D0 /* AccountRepo.swift */; };
 		0D4790292742D5F000E7C9D0 /* SharedAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */; };
 		0D47902C2742D92000E7C9D0 /* AccountRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47902B2742D92000E7C9D0 /* AccountRepoProtocol.swift */; };
+		0D47902F2747CB7400E7C9D0 /* RolesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47902E2747CB7400E7C9D0 /* RolesRepo.swift */; };
+		0D4790312747CB7E00E7C9D0 /* RolesRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4790302747CB7E00E7C9D0 /* RolesRepoProtocol.swift */; };
+		0D479034274D75CA00E7C9D0 /* UserRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D479033274D75CA00E7C9D0 /* UserRepo.swift */; };
+		0D479036274D75D500E7C9D0 /* UserRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D479035274D75D500E7C9D0 /* UserRepoProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,10 @@
 		0D4790262742D56300E7C9D0 /* AccountRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepo.swift; sourceTree = "<group>"; };
 		0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAPIConfiguration.swift; sourceTree = "<group>"; };
 		0D47902B2742D92000E7C9D0 /* AccountRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepoProtocol.swift; sourceTree = "<group>"; };
+		0D47902E2747CB7400E7C9D0 /* RolesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesRepo.swift; sourceTree = "<group>"; };
+		0D4790302747CB7E00E7C9D0 /* RolesRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesRepoProtocol.swift; sourceTree = "<group>"; };
+		0D479033274D75CA00E7C9D0 /* UserRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepo.swift; sourceTree = "<group>"; };
+		0D479035274D75D500E7C9D0 /* UserRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +109,10 @@
 		0D4790252742D4F900E7C9D0 /* Repos */ = {
 			isa = PBXGroup;
 			children = (
-				0D47902A2742D90F00E7C9D0 /* AccountRepo */,
 				0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */,
+				0D47902A2742D90F00E7C9D0 /* AccountRepo */,
+				0D47902D2747CB6100E7C9D0 /* RolesRepo */,
+				0D479032274D75AA00E7C9D0 /* UserRepo */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -114,6 +124,24 @@
 				0D47902B2742D92000E7C9D0 /* AccountRepoProtocol.swift */,
 			);
 			path = AccountRepo;
+			sourceTree = "<group>";
+		};
+		0D47902D2747CB6100E7C9D0 /* RolesRepo */ = {
+			isa = PBXGroup;
+			children = (
+				0D47902E2747CB7400E7C9D0 /* RolesRepo.swift */,
+				0D4790302747CB7E00E7C9D0 /* RolesRepoProtocol.swift */,
+			);
+			path = RolesRepo;
+			sourceTree = "<group>";
+		};
+		0D479032274D75AA00E7C9D0 /* UserRepo */ = {
+			isa = PBXGroup;
+			children = (
+				0D479033274D75CA00E7C9D0 /* UserRepo.swift */,
+				0D479035274D75D500E7C9D0 /* UserRepoProtocol.swift */,
+			);
+			path = UserRepo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +218,7 @@
 				0563278B2731C72200388A4B /* LoginView.swift in Sources */,
 				0563277F2731BE8500388A4B /* ContentView.swift in Sources */,
 				05632797273363CD00388A4B /* Product.swift in Sources */,
+				0D4790312747CB7E00E7C9D0 /* RolesRepoProtocol.swift in Sources */,
 				0563278F2731D8F100388A4B /* LoginError.swift in Sources */,
 				056327912731E3F100388A4B /* CustomAlert.swift in Sources */,
 				0563279527332F0E00388A4B /* WarehouseView.swift in Sources */,
@@ -197,8 +226,11 @@
 				0D4790292742D5F000E7C9D0 /* SharedAPIConfiguration.swift in Sources */,
 				0D4790272742D56300E7C9D0 /* AccountRepo.swift in Sources */,
 				0D47902C2742D92000E7C9D0 /* AccountRepoProtocol.swift in Sources */,
+				0D479036274D75D500E7C9D0 /* UserRepoProtocol.swift in Sources */,
 				0563278D2731CB5E00388A4B /* PasswordView.swift in Sources */,
 				056327932731E6C800388A4B /* AllTabsView.swift in Sources */,
+				0D479034274D75CA00E7C9D0 /* UserRepo.swift in Sources */,
+				0D47902F2747CB7400E7C9D0 /* RolesRepo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

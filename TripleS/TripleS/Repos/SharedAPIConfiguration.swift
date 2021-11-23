@@ -9,6 +9,7 @@ public enum SharedAPIConfiguration {
     static let product: String = "Product"
     static let role: String = "Role"
     static let unit: String = "Unit"
+    static let user: String = "User"
     
     static let login: String = "login"
     static let register: String = "register"
@@ -17,18 +18,18 @@ public enum SharedAPIConfiguration {
     static let users: String = "users"
 }
 
-// MARK: - Public JSON coder
+// MARK: - Public JSON coders
 
-/// Snake case JSON encoder
+/// JSON encoder
 public let jsonEncoder: JSONEncoder = {
     let encoder: JSONEncoder = .init()
-    encoder.keyEncodingStrategy = .convertToSnakeCase
+    encoder.keyEncodingStrategy = .useDefaultKeys
     return encoder
 }()
 
-/// Snake case JSON decoder
+/// JSON decoder
 public let jsonDecoder: JSONDecoder = {
     let decoder: JSONDecoder = .init()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    decoder.keyDecodingStrategy = .useDefaultKeys
     return decoder
 }()
