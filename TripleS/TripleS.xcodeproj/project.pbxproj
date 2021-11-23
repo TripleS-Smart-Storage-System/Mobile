@@ -21,6 +21,13 @@
 		0563279527332F0E00388A4B /* WarehouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563279427332F0E00388A4B /* WarehouseView.swift */; };
 		05632797273363CD00388A4B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05632796273363CD00388A4B /* Product.swift */; };
 		0563279927337DA900388A4B /* CreateNewSupplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563279827337DA900388A4B /* CreateNewSupplyView.swift */; };
+		0D4790272742D56300E7C9D0 /* AccountRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4790262742D56300E7C9D0 /* AccountRepo.swift */; };
+		0D4790292742D5F000E7C9D0 /* SharedAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */; };
+		0D47902C2742D92000E7C9D0 /* AccountRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47902B2742D92000E7C9D0 /* AccountRepoProtocol.swift */; };
+		0D47902F2747CB7400E7C9D0 /* RolesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47902E2747CB7400E7C9D0 /* RolesRepo.swift */; };
+		0D4790312747CB7E00E7C9D0 /* RolesRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4790302747CB7E00E7C9D0 /* RolesRepoProtocol.swift */; };
+		0D479034274D75CA00E7C9D0 /* UserRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D479033274D75CA00E7C9D0 /* UserRepo.swift */; };
+		0D479036274D75D500E7C9D0 /* UserRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D479035274D75D500E7C9D0 /* UserRepoProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +46,13 @@
 		0563279427332F0E00388A4B /* WarehouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseView.swift; sourceTree = "<group>"; };
 		05632796273363CD00388A4B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0563279827337DA900388A4B /* CreateNewSupplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewSupplyView.swift; sourceTree = "<group>"; };
+		0D4790262742D56300E7C9D0 /* AccountRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepo.swift; sourceTree = "<group>"; };
+		0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAPIConfiguration.swift; sourceTree = "<group>"; };
+		0D47902B2742D92000E7C9D0 /* AccountRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepoProtocol.swift; sourceTree = "<group>"; };
+		0D47902E2747CB7400E7C9D0 /* RolesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesRepo.swift; sourceTree = "<group>"; };
+		0D4790302747CB7E00E7C9D0 /* RolesRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesRepoProtocol.swift; sourceTree = "<group>"; };
+		0D479033274D75CA00E7C9D0 /* UserRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepo.swift; sourceTree = "<group>"; };
+		0D479035274D75D500E7C9D0 /* UserRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,20 +85,21 @@
 		0563277B2731BE8500388A4B /* TripleS */ = {
 			isa = PBXGroup;
 			children = (
-				0563277C2731BE8500388A4B /* TripleSApp.swift */,
+				056327922731E6C800388A4B /* AllTabsView.swift */,
 				0563277E2731BE8500388A4B /* ContentView.swift */,
+				0563279827337DA900388A4B /* CreateNewSupplyView.swift */,
+				056327902731E3F000388A4B /* CustomAlert.swift */,
+				0563278E2731D8F100388A4B /* LoginError.swift */,
 				0563278A2731C72200388A4B /* LoginView.swift */,
 				0563278C2731CB5E00388A4B /* PasswordView.swift */,
-				0563278E2731D8F100388A4B /* LoginError.swift */,
-				056327922731E6C800388A4B /* AllTabsView.swift */,
-				056327902731E3F000388A4B /* CustomAlert.swift */,
-				0563279427332F0E00388A4B /* WarehouseView.swift */,
-				0563279827337DA900388A4B /* CreateNewSupplyView.swift */,
 				05632796273363CD00388A4B /* Product.swift */,
 				0535895F2745664100FBB5DF /* BarcodeReaderVC.swift */,
 				053589612747DB9800FBB5DF /* BarcodeReaderViewController.swift */,
+				0563277C2731BE8500388A4B /* TripleSApp.swift */,
+				0563279427332F0E00388A4B /* WarehouseView.swift */,
 				056327802731BE8900388A4B /* Assets.xcassets */,
 				056327822731BE8900388A4B /* Preview Content */,
+				0D4790252742D4F900E7C9D0 /* Repos */,
 			);
 			path = TripleS;
 			sourceTree = "<group>";
@@ -95,6 +110,44 @@
 				056327832731BE8900388A4B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0D4790252742D4F900E7C9D0 /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+				0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */,
+				0D47902A2742D90F00E7C9D0 /* AccountRepo */,
+				0D47902D2747CB6100E7C9D0 /* RolesRepo */,
+				0D479032274D75AA00E7C9D0 /* UserRepo */,
+			);
+			path = Repos;
+			sourceTree = "<group>";
+		};
+		0D47902A2742D90F00E7C9D0 /* AccountRepo */ = {
+			isa = PBXGroup;
+			children = (
+				0D4790262742D56300E7C9D0 /* AccountRepo.swift */,
+				0D47902B2742D92000E7C9D0 /* AccountRepoProtocol.swift */,
+			);
+			path = AccountRepo;
+			sourceTree = "<group>";
+		};
+		0D47902D2747CB6100E7C9D0 /* RolesRepo */ = {
+			isa = PBXGroup;
+			children = (
+				0D47902E2747CB7400E7C9D0 /* RolesRepo.swift */,
+				0D4790302747CB7E00E7C9D0 /* RolesRepoProtocol.swift */,
+			);
+			path = RolesRepo;
+			sourceTree = "<group>";
+		};
+		0D479032274D75AA00E7C9D0 /* UserRepo */ = {
+			isa = PBXGroup;
+			children = (
+				0D479033274D75CA00E7C9D0 /* UserRepo.swift */,
+				0D479035274D75D500E7C9D0 /* UserRepoProtocol.swift */,
+			);
+			path = UserRepo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,14 +224,21 @@
 				0563278B2731C72200388A4B /* LoginView.swift in Sources */,
 				0563277F2731BE8500388A4B /* ContentView.swift in Sources */,
 				05632797273363CD00388A4B /* Product.swift in Sources */,
+				0D4790312747CB7E00E7C9D0 /* RolesRepoProtocol.swift in Sources */,
 				0563278F2731D8F100388A4B /* LoginError.swift in Sources */,
 				056327912731E3F100388A4B /* CustomAlert.swift in Sources */,
 				0563279527332F0E00388A4B /* WarehouseView.swift in Sources */,
 				0563277D2731BE8500388A4B /* TripleSApp.swift in Sources */,
 				053589622747DB9800FBB5DF /* BarcodeReaderViewController.swift in Sources */,
+				0D4790292742D5F000E7C9D0 /* SharedAPIConfiguration.swift in Sources */,
+				0D4790272742D56300E7C9D0 /* AccountRepo.swift in Sources */,
+				0D47902C2742D92000E7C9D0 /* AccountRepoProtocol.swift in Sources */,
+				0D479036274D75D500E7C9D0 /* UserRepoProtocol.swift in Sources */,
 				0563278D2731CB5E00388A4B /* PasswordView.swift in Sources */,
 				053589602745664100FBB5DF /* BarcodeReaderVC.swift in Sources */,
 				056327932731E6C800388A4B /* AllTabsView.swift in Sources */,
+				0D479034274D75CA00E7C9D0 /* UserRepo.swift in Sources */,
+				0D47902F2747CB7400E7C9D0 /* RolesRepo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
