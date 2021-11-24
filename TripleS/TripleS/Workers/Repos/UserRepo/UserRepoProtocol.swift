@@ -30,8 +30,8 @@ public struct RoleModel: Codable {
 
 public struct UserModel: Codable {
     let id: String
-    let name: String
-    let surName: String
+    var name: String
+    var surName: String
     let nickName: String
     let roles: [RoleModel]?
 }

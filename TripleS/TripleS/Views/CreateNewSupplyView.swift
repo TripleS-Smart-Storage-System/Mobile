@@ -23,18 +23,23 @@ struct CreateNewSupplyView: View {
         VStack(alignment: .center, spacing: 40) {
             TextField("Product name", text: $Name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .textInputAutocapitalization(.never)
                 .font(.title)
             TextField("Product description", text: $Description)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .textInputAutocapitalization(.never)
                 .font(.title)
             TextField("Shelf Life", text: $ShelfLife)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .textInputAutocapitalization(.never)
                 .font(.title)
             TextField("Amount", text: $Amount)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .textInputAutocapitalization(.never)
                 .font(.title)
             TextField("Unit", text: $Unit)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .textInputAutocapitalization(.never)
                 .font(.title)
             Spacer()
             Button (action: {
@@ -44,6 +49,7 @@ struct CreateNewSupplyView: View {
                     .font(.title)
             }
             .alert(isPresented: $isDone) {
+                // 2 вот тут вместо алерта должны происходить какие то вещи
                 Alert(title: Text("New product created"),
                       message: Text("You successfully added new product to warehouse, now back to work"),
                       dismissButton: .default(Text("Ok")))

@@ -12,9 +12,6 @@ struct AllTabsView: View {
     @State var selection = 1
     @State var isAnimating = true
     
-    @State private var qrCode: String?
-    @State private var showQRCodeReader = false
-    
     var body: some View {
         TabView(selection: $selection) {
             // 1
@@ -37,15 +34,7 @@ struct AllTabsView: View {
             
             // 3
             NavigationView {
-                VStack {
-                    Text(qrCode ?? "Empty string")
-                    Button("Read QR code") {
-                        self.showQRCodeReader = true
-                    }
-                }
-                .fullScreenCover(isPresented: $showQRCodeReader) {
-                    BarcodeReaderVC(qrCode: $qrCode)
-                }
+                ScannerTabView()
             }.tabItem {
                 Image(systemName: "qrcode.viewfinder")
                 Text("QR code")
@@ -63,7 +52,7 @@ struct AllTabsView: View {
             
             // 5
             NavigationView {
-                Text("Fifth")
+                ProfileView(user: accountWorker.profile ?? currentDefaultUser)
             }.tabItem {
                 Image(systemName: "person.fill")
                 Text("Profile")
@@ -72,6 +61,8 @@ struct AllTabsView: View {
         }
     }
 }
+
+let currentDefaultUser = UserModel(id: "101", name: "Zeratul", surName: "Tassadar", nickName: "zeratul@nure.ua", roles: [RoleModel(id: "1001", name: "Worker"), RoleModel(id:"1002", name: "CEO"), RoleModel(id: "1003", name: "Mentor")])
 
 struct AllTabsView_Previews: PreviewProvider {
     static var previews: some View {

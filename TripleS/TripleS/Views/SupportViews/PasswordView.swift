@@ -16,10 +16,12 @@ struct PasswordView: View {
             if isSecured {
                 SecureField(isConf ? "Confirm pass" : "Password", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .textInputAutocapitalization(.never)
                     .font(.title)
             } else {
                 TextField(isConf ? "Confirm pass" : "Password", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .textInputAutocapitalization(.never)
                     .font(.title)
             }
             Button(action: {

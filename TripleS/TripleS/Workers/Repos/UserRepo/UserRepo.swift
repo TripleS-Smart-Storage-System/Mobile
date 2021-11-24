@@ -37,6 +37,7 @@ private extension UserRepo {
         }
         
         var request: URLRequest = URLRequest(url: url)
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
         
         let task: URLSessionDataTask = self.session.dataTask(
@@ -101,6 +102,7 @@ private extension UserRepo {
         }
         
         var request: URLRequest = URLRequest(url: url)
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "PUT"
         
         do {
@@ -151,6 +153,7 @@ private extension UserRepo {
         }
         
         var request: URLRequest = URLRequest(url: url)
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
         
         let task: URLSessionDataTask = self.session.dataTask(
