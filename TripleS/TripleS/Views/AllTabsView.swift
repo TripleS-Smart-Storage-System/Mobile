@@ -12,9 +12,6 @@ struct AllTabsView: View {
     @State var selection = 1
     @State var isAnimating = true
     
-    @State private var qrCode: String?
-    @State private var showQRCodeReader = false
-    
     var body: some View {
         TabView(selection: $selection) {
             // 1
@@ -37,15 +34,7 @@ struct AllTabsView: View {
             
             // 3
             NavigationView {
-                VStack {
-                    Text(qrCode ?? "Empty string")
-                    Button("Read QR code") {
-                        self.showQRCodeReader = true
-                    }
-                }
-                .fullScreenCover(isPresented: $showQRCodeReader) {
-                    BarcodeReaderVC(qrCode: $qrCode)
-                }
+                ScannerTabView()
             }.tabItem {
                 Image(systemName: "qrcode.viewfinder")
                 Text("QR code")
