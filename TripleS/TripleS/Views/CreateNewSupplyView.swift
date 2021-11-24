@@ -59,7 +59,6 @@ struct CreateNewSupplyView: View {
     }
     
     private func Add() {
-        //1- здесь должено быть добавление, делается вызов комплишена, хз пока как это интегрировать по уму
         //here will be server request
 //        newProduct = Supply(id: UUID(), product: Product(name: Name, description: Description, unit: TripleS.Unit(rawValue: Unit) ?? .pc, shelfLife: Double(ShelfLife) ?? 0), productionDate: Date(), amount: Double(Amount) ?? 0)
         complition(Supply(id: UUID(), product: Product(name: Name, description: Description, unit: TripleS.Unit(rawValue: Unit) ?? .pc, shelfLife: Double(ShelfLife) ?? 0), productionDate: Date(), amount: Double(Amount) ?? 0))

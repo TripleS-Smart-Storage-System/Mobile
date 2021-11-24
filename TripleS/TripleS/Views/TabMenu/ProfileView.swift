@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State var user: User
+    @State var user: UserModel
     var body: some View {
         VStack {
             Spacer()
@@ -17,21 +17,21 @@ struct ProfileView: View {
                     Text("Full name:")
                     Spacer()
                     Text(user.name)
-                    Text(user.surname)
+                    Text(user.surName)
                 }
                 Divider()
                 HStack {
                     Text("Email:")
                     Spacer()
-                    Text(user.nickname)
+                    Text(user.nickName)
                 }
                 Divider()
                 HStack {
                     Text("Roles:")
                     Spacer()
                     VStack(alignment: .trailing,spacing: 5) {
-                        ForEach(user.roles, id: \.id) { role in
-                            Text(role.role)
+                        ForEach(user.roles ?? [], id: \.id) { role in
+                            Text(role.name)
                         }
                     }
                 }
@@ -62,6 +62,6 @@ struct ProfileView: View {
                     
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(user: currentUser)
+        ProfileView(user: currentDefaultUser)
     }
 }

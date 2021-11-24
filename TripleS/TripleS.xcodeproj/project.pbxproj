@@ -91,14 +91,12 @@
 		05358971274D498300FBB5DF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0D16659E274D9CAF00E110B6 /* AllTabsView.swift */,
+				05358975274D4A9700FBB5DF /* TabMenu */,
 				05358969274C025000FBB5DF /* ChangePasswordView.swift */,
 				05358967274C014800FBB5DF /* ChangeProfileView.swift */,
 				0D16659C274D9CAF00E110B6 /* CreateNewSupplyView.swift */,
-				0576B7AC274E6CB100730B9D /* ScannerTabView.swift */,
 				0D16659D274D9CAF00E110B6 /* LoginView.swift */,
 				05358973274D49B600FBB5DF /* SupportViews */,
-				05358975274D4A9700FBB5DF /* TabMenu */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,8 +132,10 @@
 		05358975274D4A9700FBB5DF /* TabMenu */ = {
 			isa = PBXGroup;
 			children = (
-				05358963274BFD6E00FBB5DF /* ProfileView.swift */,
+				0D16659E274D9CAF00E110B6 /* AllTabsView.swift */,
 				0D1665A4274D9CCB00E110B6 /* WarehouseView.swift */,
+				0576B7AC274E6CB100730B9D /* ScannerTabView.swift */,
+				05358963274BFD6E00FBB5DF /* ProfileView.swift */,
 			);
 			path = TabMenu;
 			sourceTree = "<group>";

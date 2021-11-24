@@ -62,8 +62,6 @@ struct ChangePasswordView: View {
                 guard let alert = customAlert else {
                     return Alert(title: Text("Are you sure you want to change password?"), message: Text("Your current password will be lost"), primaryButton: .default(Text("Yes")) {
                         self.dismiss()
-                        // здесь вместо self.dismiss() должна быть отправка запроса на изменение пароля
-                        // тут UI под это дело пока не готов, но можно будет настроить
                     }, secondaryButton: .cancel(){
                         clearAllFields()
                     })

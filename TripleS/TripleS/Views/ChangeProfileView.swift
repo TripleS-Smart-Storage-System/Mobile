@@ -11,22 +11,22 @@ struct ChangeProfileView: View {
     @State var showAlert: Bool = false
     @State var customAlert: CustomAlert? = nil
     
-    @Binding var user: User
-    @State var userWithChanges: User
+    @Binding var user: UserModel
+    @State var userWithChanges: UserModel
     
     @Environment(\.dismiss) private var dismiss
     
-    init(_ user: Binding<User>) {
+    init(_ user: Binding<UserModel>) {
         self._user = user
         _userWithChanges = State(initialValue: user.wrappedValue)
     }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 50) {
-            Text("Username: " + user.nickname)
+            Text("Username: " + user.nickName)
             TextField("First name", text: $userWithChanges.name)
                 .textInputAutocapitalization(.never)
-            TextField("Surname", text: $userWithChanges.surname)
+            TextField("Surname", text: $userWithChanges.surName)
                 .textInputAutocapitalization(.never)
             HStack {
                 Spacer()
@@ -54,10 +54,19 @@ struct ChangeProfileView: View {
                     guard let alert = customAlert else {
                         return Alert(title: Text("Are you sure you want to change your profile info?"), message: Text("All your previous information will be lost"), primaryButton: .default(Text("Yes")) {
                             user = userWithChanges
+                            accountWorker.updateProfile(id: userWithChanges.id, name: userWithChanges.name, surname: userWithChanges.surName, nickname: userWithChanges.nickName, completion: { (result) in
+                                switch result {
+                                    
+                                case .success():
+                                    print("\(userWithChanges.id) changed")
+                                    
+                                case .failure(let error):
+                                    // TODO: - handle error
+                                    print("\(#function)): \(error)")
+                                    
+                                }
+                            })
                             self.dismiss()
-                            // здесь вместо self.dismiss() должна быть отправка запроса на изменение профиля пользователя
-                            // в зависимости от этого должно быть действие в 54 - выполнено или нет
-                            // тут UI под это дело пока не готов, но можно будет настроить
                         }, secondaryButton: .cancel(){
                             userWithChanges = user
                         })
@@ -76,13 +85,13 @@ struct ChangeProfileView: View {
     }
     
     private func changeInfo() throws {
-        if userWithChanges.name.isEmpty || userWithChanges.surname.isEmpty {
+        if userWithChanges.name.isEmpty || userWithChanges.surName.isEmpty {
             throw ProfileChangeError.someEmptyFields
         }
         if userWithChanges.name.count < 4 {
             throw ProfileChangeError.nameTooShort
         }
-        if userWithChanges.surname.count < 4 {
+        if userWithChanges.surName.count < 4 {
             throw ProfileChangeError.surnameTooShort
         }
     }
@@ -90,6 +99,6 @@ struct ChangeProfileView: View {
 
 struct ChangeProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ChangeProfileView(.constant(currentUser))
+        ChangeProfileView(.constant(currentDefaultUser))
     }
 }

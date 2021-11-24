@@ -52,7 +52,7 @@ struct AllTabsView: View {
             
             // 5
             NavigationView {
-                ProfileView(user: currentUser)
+                ProfileView(user: accountWorker.profile ?? currentDefaultUser)
             }.tabItem {
                 Image(systemName: "person.fill")
                 Text("Profile")
@@ -62,7 +62,7 @@ struct AllTabsView: View {
     }
 }
 
-let currentUser = User(id: "101", name: "Zeratul", surname: "Tassadar", nickname: "zeratul@nure.ua", roles: [Role(id: "1001", role: "Worker"), Role(id:"1002", role: "CEO"), Role(id: "1003", role: "Mentor")])
+let currentDefaultUser = UserModel(id: "101", name: "Zeratul", surName: "Tassadar", nickName: "zeratul@nure.ua", roles: [RoleModel(id: "1001", name: "Worker"), RoleModel(id:"1002", name: "CEO"), RoleModel(id: "1003", name: "Mentor")])
 
 struct AllTabsView_Previews: PreviewProvider {
     static var previews: some View {

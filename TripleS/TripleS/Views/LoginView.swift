@@ -146,7 +146,6 @@ struct LoginView: View {
 //        if email == "1111" && pass.count == 8 { // check existance of user
 //            willMoveToNextScreen = true
 //        }
-        // здесь должна быть проверка на существование профиля на сервере и проверка ответа, можно добавить выбросы разных ошибок и захендлить в месте вызова этой функции в этом же файле
     }
         
     func registration() throws {
@@ -189,8 +188,7 @@ struct LoginView: View {
 //        if email == "1111" && pass.count == 8 { // check existance of userA*I
 //            // adding user to db
 //        }
-        
-        // здесь должен быть запрос на добавления профиль на сервере, можно добавить выбросы разных ошибок и захендлить в месте вызова этой функции в этом же файле
+
     }
     
     private func changeLoginView() {
