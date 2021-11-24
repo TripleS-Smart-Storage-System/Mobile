@@ -31,13 +31,17 @@ struct LoginView: View {
                 if isRegistration {
                     TextField("First name", text: $FirstName)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textInputAutocapitalization(.never)
                         .font(.title)
                     TextField("Last name", text: $LastName)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textInputAutocapitalization(.never)
                         .font(.title)
                 }
                 TextField("Email", text: $Email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .textInputAutocapitalization(.never)
+                    .keyboardType(.emailAddress)
                     .font(.title)
                 PasswordView(isConf: false, isSecured: $isSecuredFirst, password: $Password)
                 if isRegistration {

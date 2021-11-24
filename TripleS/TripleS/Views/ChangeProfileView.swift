@@ -25,7 +25,9 @@ struct ChangeProfileView: View {
         VStack(alignment: .leading, spacing: 50) {
             Text("Username: " + user.nickname)
             TextField("First name", text: $userWithChanges.name)
+                .textInputAutocapitalization(.never)
             TextField("Surname", text: $userWithChanges.surname)
+                .textInputAutocapitalization(.never)
             HStack {
                 Spacer()
                 Button("Confirm") {
