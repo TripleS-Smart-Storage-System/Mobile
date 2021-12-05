@@ -1,13 +1,13 @@
 //
-//  SupplyRepo.swift
+//  SupplyProductRepo.swift
 //  TripleS
 //
-//  Created by Mykhailo Zorin on 05.12.2021.
+//  Created by Mykhailo Zorin on 06.12.2021.
 //
 
 import Foundation
 
-public class SupplyRepo {
+public class SupplyProductRepo {
     
     enum SupplyRepoError: Swift.Error {
         case cannotCastToUrl
@@ -21,37 +21,29 @@ public class SupplyRepo {
     
     private let session = URLSession.shared
     
-    private let sharedBaseUrl: String = "\(SharedAPIConfiguration.baseUrl)/\(SharedAPIConfiguration.api)/\(SharedAPIConfiguration.supply)"
+    private let sharedBaseUrl: String = "\(SharedAPIConfiguration.baseUrl)/\(SharedAPIConfiguration.api)/\(SharedAPIConfiguration.supplyProduct)"
 }
 
 // MARK: - Private methods
 
-private extension SupplyRepo {
+private extension SupplyProductRepo {
     
-    func performGetSupplyTask(
+    func performGetSupplyProductTask(
         id: String,
-        completion: @escaping (Result<SupplyModel, Error>) -> Void
+        completion: @escaping (Result<SupplyProductModel, Error>) -> Void
     ) {
-        struct SupplyModel: Codable {
-            let id: String
-        }
         
-        let stringURL: String = "\(self.sharedBaseUrl)/\(id)"
-        guard let url = URL(string: stringURL)
+        guard let url = URL(string: self.sharedBaseUrl)
         else {
             completion(.failure(SupplyRepoError.cannotCastToUrl))
             return
         }
         
-        let httpBody: SupplyModel = .init(
-            id: id
-        )
-        
         var request: URLRequest = URLRequest(url: url)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
         do {
-            request.httpBody = try jsonEncoder.encode(httpBody)
+            request.httpBody = try jsonEncoder.encode(id)
         } catch let error {
             completion(.failure(error))
             return
@@ -75,7 +67,7 @@ private extension SupplyRepo {
                 }
                 
                 do {
-                    let decodedResponse = try self?.handleSupplyResponse(for: data)
+                    let decodedResponse = try self?.handleSupplyProductResponse(for: data)
                     
                     guard let decodedResponse = decodedResponse
                     else {
@@ -83,7 +75,7 @@ private extension SupplyRepo {
                         return
                     }
                     
-                    completion(.success(decodedResponse.supply))
+                    completion(.success(decodedResponse.supplyProduct))
                 } catch let error {
                     completion(.failure(error))
                     return
@@ -94,10 +86,16 @@ private extension SupplyRepo {
         task.resume()
     }
     
-    func performPostSupplyReceiveTast(
+    func performPostSupplyProductReceiveTast(
         id: String,
+        productionDate: Date,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
+        struct SupplyProductModel: Codable {
+            let id: String
+            let productionDate: Date
+        }
+        
         let stringURL: String = "\(self.sharedBaseUrl)/\(SharedAPIConfiguration.receive)/\(id)"
         
         guard let url = URL(string: stringURL)
@@ -106,11 +104,16 @@ private extension SupplyRepo {
             return
         }
         
+        let httpBody: SupplyProductModel = .init(
+            id: id,
+            productionDate: productionDate
+        )
+        
         var request: URLRequest = URLRequest(url: url)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         do {
-            request.httpBody = try jsonEncoder.encode(id)
+            request.httpBody = try jsonEncoder.encode(httpBody)
         } catch let error {
             completion(.failure(error))
             return
@@ -140,10 +143,10 @@ private extension SupplyRepo {
     }
     
     struct ResponseModel: Decodable {
-        let supply: SupplyModel
+        let supplyProduct: SupplyProductModel
     }
     
-    func handleSupplyResponse(
+    func handleSupplyProductResponse(
         for data: Data?
     ) throws -> ResponseModel {
         
@@ -169,22 +172,26 @@ private extension SupplyRepo {
 
 // MARK: - SupplyAPIProtocol
 
-extension SupplyRepo: SupplyAPIProtocol {
+extension SupplyProductRepo: SupplyProductAPIProtocol {
     
-    public func getSupply(
+    public func getSupplyProduct(
         for id: String,
-        completion: @escaping (Result<SupplyModel, Error>) -> Void
+        completion: @escaping (Result<SupplyProductModel, Error>) -> Void
     ) {
         
-        self.performGetSupplyTask(id: id, completion: completion)
+        self.performGetSupplyProductTask(id: id, completion: completion)
         
     }
     
-    public func postSupplyReceive(
+    public func postSupplyProductReceive(
         for id: String,
+        productionDate: Date,
         completion: @escaping (Result<Void, Error>) -> Void) {
             
-        self.performPostSupplyReceiveTast(id: id, completion: completion)
+        self.performPostSupplyProductReceiveTast(
+            id: id,
+            productionDate: productionDate,
+            completion: completion)
         
     }
 }

@@ -14,6 +14,11 @@ public protocol SupplyAPIProtocol: AnyObject {
         for id: String,
         completion: @escaping (Swift.Result<SupplyModel, Swift.Error>) -> Void
     )
+    
+    func postSupplyReceive(
+        for id: String,
+        completion: @escaping (Swift.Result<Void, Swift.Error>) -> Void
+    )
 }
 
 
