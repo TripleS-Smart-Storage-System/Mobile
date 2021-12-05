@@ -10,6 +10,7 @@ public enum SharedAPIConfiguration {
     static let role: String = "Role"
     static let unit: String = "Unit"
     static let user: String = "User"
+    static let supply: String = "Supply"
     
     static let login: String = "login"
     static let register: String = "register"
