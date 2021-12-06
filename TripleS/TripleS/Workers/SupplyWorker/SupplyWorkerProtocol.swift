@@ -20,6 +20,4 @@ public protocol SupplyWorkerProtocol: AnyObject {
         id: String,
         completion: @escaping (Swift.Result<Void, Swift.Error>) -> Void
     )
-    
-    
 }
