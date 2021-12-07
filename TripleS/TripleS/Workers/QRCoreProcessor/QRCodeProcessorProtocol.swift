@@ -13,14 +13,15 @@ public protocol QRCodeProcessorProtocol: AnyObject {
 }
 
 public struct SupplyQRCodeModel: Decodable {
-    
+    let id: String
 }
 
-public struct ProductQRCodeModel: Decodable {
-    
+public struct SupplyProductQRCodeModel: Decodable {
+    let id: String
+    let date: String
 }
 
 public enum QRCodeType {
     case supply(SupplyQRCodeModel)
-    case product(ProductQRCodeModel)
+    case supplyProduct(SupplyProductQRCodeModel)
 }

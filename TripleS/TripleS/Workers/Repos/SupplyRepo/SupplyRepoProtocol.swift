@@ -21,7 +21,6 @@ public protocol SupplyAPIProtocol: AnyObject {
     )
 }
 
-
 public struct SupplyModel: Codable {
     let id: String
     var product: ProductModel

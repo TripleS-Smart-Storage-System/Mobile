@@ -185,6 +185,5 @@ extension SupplyRepo: SupplyAPIProtocol {
         completion: @escaping (Result<Void, Error>) -> Void) {
             
         self.performPostSupplyReceiveTast(id: id, completion: completion)
-        
     }
 }

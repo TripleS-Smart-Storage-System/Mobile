@@ -97,7 +97,7 @@ private extension AccountRepo {
     ) {
         struct RegisterModel: Codable {
             let name: String
-            let surname: String
+            let surName: String
             let email: String
             let password: String
         }
@@ -110,7 +110,7 @@ private extension AccountRepo {
         
         let httpBody: RegisterModel = .init(
             name: name,
-            surname: surname,
+            surName: surname,
             email: email,
             password: password
         )

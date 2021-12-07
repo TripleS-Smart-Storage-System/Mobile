@@ -69,6 +69,3 @@ extension SupplyWorker: SupplyWorkerProtocol {
         })
     }
 }
-
-// MARK: - Temporary decision, should have killed it
-public let supplyWorker: SupplyWorkerProtocol = SupplyWorker()

@@ -130,6 +130,3 @@ extension AccountWorker: AccountWorkerProtocol {
         )
     }
 }
-
-// MARK: - Temporary decision, should have killed it
-public let accountWorker: AccountWorkerProtocol = AccountWorker()

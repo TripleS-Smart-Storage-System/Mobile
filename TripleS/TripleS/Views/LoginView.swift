@@ -181,7 +181,7 @@ struct LoginView: View {
                     
                 case .failure(let error):
                     // TODO: - handle error
-                    print("\(#function)): \(error)")
+                    print("\(#function): \(error)")
                 }
             }
         )
