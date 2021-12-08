@@ -61,10 +61,13 @@ struct ScannerTabView: View {
     
     private func handleScan(result: Result<String, CodeScannerView.ScanError>) {
         showQRCodeReader = false
+        
         switch result {
         case .success(let code):
             qrCode = code
             showLoadingIndicator = false
+            
+            // TODO: - Show details
             print(try? qrCodeProcessor.processQRCode(value: code))
             
         case .failure(let error):
@@ -74,8 +77,6 @@ struct ScannerTabView: View {
 }
 
 //let testD = Dataa(id: 1, name: "Rorrrrrrr", desc: "Longds lsdkfk lsdkfl dslf ldksfl dsfkl j sdkdjsjdf jsdfjkjsdkfj kjsdf j sdf sdf sdf kfj ksjf jsdfk jksdf jks sjk jsk jdkfffds", date: Date(), num: 5, unit: "kg", shelfLife: 743.4)
-
-
 
 struct ScannerTabView_Previews: PreviewProvider {
     static var previews: some View {

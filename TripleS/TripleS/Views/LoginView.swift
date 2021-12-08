@@ -98,7 +98,7 @@ struct LoginView: View {
                             Text("Sign in")
                                 .font(.title)
                         }
-                        .alert("Registration complete", isPresented: $showingAlert) {
+                        .alert("Registration completed. Please wait admin's approval", isPresented: $showingAlert) {
                             Button("OK") {
                                 changeLoginView()
                             }
@@ -181,7 +181,7 @@ struct LoginView: View {
                 
                 switch result {
                     
-                case .success():
+                case .success:
                     showingAlert = true
                     
                 case .failure(let error):

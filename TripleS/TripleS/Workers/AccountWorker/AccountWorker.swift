@@ -52,26 +52,13 @@ extension AccountWorker: AccountWorkerProtocol {
         password: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
+        
         self.accountRepo.register(
             name: name,
             surname: surname,
             email: email,
             password: password,
-            completion: { [weak self] (result) in
-                
-                switch result {
-                    
-                case .success(let tuple):
-                    self?.userToken = tuple.1
-                    self?.fetchUserData(
-                        for: tuple.0,
-                        completion: completion
-                    )
-                    
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
+            completion: completion
         )
     }
     
@@ -80,6 +67,7 @@ extension AccountWorker: AccountWorkerProtocol {
         password: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
+        
         self.accountRepo.login(
             email: email,
             password: password,
@@ -108,6 +96,7 @@ extension AccountWorker: AccountWorkerProtocol {
         nickname: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
+        
         self.userRepo.putUser(
             id: id,
             name: name,

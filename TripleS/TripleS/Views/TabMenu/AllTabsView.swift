@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AllTabsView: View {
     
-    @State var selection = 1
+    @State var selection = 3
     @State var isAnimating = true
     
     var body: some View {

@@ -101,16 +101,16 @@ struct ShortDescriptionView: View {
 }
 
 
-extension TimeInterval{
+extension TimeInterval {
     
     func stringFromTimeInterval() -> String {
         
         let time = NSInteger(self)
-        let weaks = (time / 24) / 7
+        let weeks = (time / 24) / 7
         let days = (time / 24) % 7
         let hours = time % 24
         
-        return String(format: "%0.2d w %0.2d d %0.2d h",weaks, days, hours)
+        return String(format: "%0.2d w %0.2d d %0.2d h", weeks, days, hours)
     }
 }
 
