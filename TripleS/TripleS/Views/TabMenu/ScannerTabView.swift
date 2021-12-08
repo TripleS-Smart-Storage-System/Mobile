@@ -12,7 +12,9 @@ struct ScannerTabView: View {
     @State private var qrCode: String?
     @State private var showQRCodeReader = false
     @State private var showLoadingIndicator = false
-    
+//    @State private var qrCodeData: Dataa = testD
+    @State private var qrCodeSupplyProductData: SupplyProductModel?
+    @State private var qrCodeSupplyData: SupplyModel?
     var body: some View {
         VStack {
             if !showQRCodeReader {
@@ -41,10 +43,19 @@ struct ScannerTabView: View {
                     .scaleEffect(4, anchor: .center)
                     .frame(height: 200, alignment: .center)
             } else {
-                Text(qrCode ?? "No value")
-                    .frame(height: 200, alignment: .center)
+                if qrCodeSupplyProductData != nil {
+                    ShortDescriptionView(qrCodeSupplyProductData: $qrCodeSupplyProductData, qrCodeSupplyData: .constant(nil))
+                        .frame(height: 200, alignment: .center)
+                } else {
+                    if qrCodeSupplyData != nil {
+                        ShortDescriptionView(qrCodeSupplyProductData: .constant(nil), qrCodeSupplyData: $qrCodeSupplyData)
+                            .frame(height: 200, alignment: .center)
+                    } else {
+                        Text("No Data")
+                            .frame(height: 200, alignment: .center)
+                    }
+                }
             }
-            
         }
     }
     
@@ -61,6 +72,8 @@ struct ScannerTabView: View {
         }
     }
 }
+
+//let testD = Dataa(id: 1, name: "Rorrrrrrr", desc: "Longds lsdkfk lsdkfl dslf ldksfl dsfkl j sdkdjsjdf jsdfjkjsdkfj kjsdf j sdf sdf sdf kfj ksjf jsdfk jksdf jks sjk jsk jdkfffds", date: Date(), num: 5, unit: "kg", shelfLife: 743.4)
 
 
 
