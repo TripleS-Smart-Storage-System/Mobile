@@ -24,6 +24,7 @@ struct LoginView: View {
     @State var isRegistration: Bool = false
     
     @State var alert = CustomAlert(title: "", message: "")
+    @State private var showingAlert = false
     
     var body: some View {
         NavigationView {
@@ -96,6 +97,11 @@ struct LoginView: View {
                         }) {
                             Text("Sign in")
                                 .font(.title)
+                        }
+                        .alert("Registration complete", isPresented: $showingAlert) {
+                            Button("OK") {
+                                changeLoginView()
+                            }
                         }
                         Spacer()
                         Button(action:{
@@ -176,8 +182,7 @@ struct LoginView: View {
                 switch result {
                     
                 case .success():
-                    // TODO: - Pop to Sign In view instead of 'willMoveToNextScreen'
-                    willMoveToNextScreen = true
+                    showingAlert = true
                     
                 case .failure(let error):
                     // TODO: - handle error
