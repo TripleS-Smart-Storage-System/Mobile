@@ -167,7 +167,6 @@ struct LoginView: View {
 //        }
         
         accountWorker.register(
-            // TODO: - remove hardcoded values
             name: FirstName,
             surname: LastName,
             email: email,
@@ -177,6 +176,7 @@ struct LoginView: View {
                 switch result {
                     
                 case .success():
+                    // TODO: - Pop to Sign In view instead of 'willMoveToNextScreen'
                     willMoveToNextScreen = true
                     
                 case .failure(let error):
