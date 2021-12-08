@@ -20,6 +20,25 @@ public protocol SupplyProductAPIProtocol: AnyObject {
     )
 }
 
-public struct SupplyProductModel: Codable {
+public struct SupplyProductModel: Codable, Equatable {
     let id: String
+    let supplyId: String
+    let productId: String
+    let count: Int
+    let isAccepted: Bool
+    let productCreatedDate: SharedDateModel
+    let product: ProductModel
+    
+    struct ProductModel: Codable, Equatable {
+        let id: String
+        let name: String
+        let description: String
+        let unit: UnitModel
+        let shelfLife: String
+        
+        struct UnitModel: Codable, Equatable {
+            let id: String
+            let name: String
+        }
+    }
 }

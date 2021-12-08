@@ -26,6 +26,7 @@
 		0576B7AB274E6C2B00730B9D /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 0576B7AA274E6C2B00730B9D /* CodeScanner */; };
 		0576B7AD274E6CB100730B9D /* ScannerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0576B7AC274E6CB100730B9D /* ScannerTabView.swift */; };
 		0D049195275FE7B800C269C1 /* SharedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D049194275FE7B700C269C1 /* SharedProperties.swift */; };
+		0D04919727611F0800C269C1 /* SharedDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D04919627611F0800C269C1 /* SharedDateModel.swift */; };
 		0D166598274D9C7700E110B6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D166596274D9C7700E110B6 /* CustomAlert.swift */; };
 		0D166599274D9C7700E110B6 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D166597274D9C7700E110B6 /* Product.swift */; };
 		0D16659B274D9C9D00E110B6 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16659A274D9C9D00E110B6 /* LoginError.swift */; };
@@ -69,6 +70,7 @@
 		056327832731BE8900388A4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0576B7AC274E6CB100730B9D /* ScannerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerTabView.swift; sourceTree = "<group>"; };
 		0D049194275FE7B700C269C1 /* SharedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProperties.swift; sourceTree = "<group>"; };
+		0D04919627611F0800C269C1 /* SharedDateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDateModel.swift; sourceTree = "<group>"; };
 		0D166596274D9C7700E110B6 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		0D166597274D9C7700E110B6 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0D16659A274D9C9D00E110B6 /* LoginError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				0524EC1A275D718300134A0C /* SupplyProductRepo */,
 				0524EC10275C3FD500134A0C /* SupplyRepo */,
 				0D479032274D75AA00E7C9D0 /* UserRepo */,
+				0D04919627611F0800C269C1 /* SharedDateModel.swift */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				0D4790312747CB7E00E7C9D0 /* RolesRepoProtocol.swift in Sources */,
 				0535896A274C025000FBB5DF /* ChangePasswordView.swift in Sources */,
 				0D166599274D9C7700E110B6 /* Product.swift in Sources */,
+				0D04919727611F0800C269C1 /* SharedDateModel.swift in Sources */,
 				0DC5FDA4275EA727008A5893 /* QRCodeProcessorProtocol.swift in Sources */,
 				0563277D2731BE8500388A4B /* TripleSApp.swift in Sources */,
 				0D4790292742D5F000E7C9D0 /* SharedAPIConfiguration.swift in Sources */,

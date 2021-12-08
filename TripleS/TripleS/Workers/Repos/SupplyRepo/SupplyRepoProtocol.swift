@@ -21,22 +21,20 @@ public protocol SupplyAPIProtocol: AnyObject {
     )
 }
 
-public struct SupplyModel: Codable {
+public struct SupplyModel: Codable, Equatable {
     let id: String
-    var product: ProductModel
-    let productionDate: Date
-    let amount: Double
-}
-
-struct ProductModel: Codable {
-    let id: String
-    let name: String
-    let description: String
-    let unit: UnitModel
-    let shelfLife: TimeInterval
-}
-
-struct UnitModel: Codable {
-    let id: String
-    let name: String
+    let supplyCreatedUserId: String
+    let acceptUserId: String
+    let dateOrdered: SharedDateModel
+    let dateAccepted: SharedDateModel
+    let isArrived: Bool
+    let acceptUser: User?
+    let supplyCreatedUser: User?
+    
+    struct User: Codable, Equatable {
+        let id: String
+        let name: String
+        let surName: String
+        let nickName: String
+    }
 }
