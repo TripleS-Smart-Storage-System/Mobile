@@ -9,7 +9,13 @@ import Foundation
 
 extension URLRequest {
     
-    mutating func setToken(_ token: String) {
+    mutating func setToken(_ token: String?) {
+        guard let token = token
+        else {
+            print("\(#function) No token")
+            return
+        }
+
         self.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     }
 }

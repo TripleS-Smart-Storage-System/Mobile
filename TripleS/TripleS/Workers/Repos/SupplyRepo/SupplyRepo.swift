@@ -50,6 +50,8 @@ private extension SupplyRepo {
         var request: URLRequest = URLRequest(url: url)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
+        request.setToken(accountWorker.token)
+        
         do {
             request.httpBody = try jsonEncoder.encode(httpBody)
         } catch let error {
@@ -109,6 +111,7 @@ private extension SupplyRepo {
         var request: URLRequest = URLRequest(url: url)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
+        request.setToken(accountWorker.token)
         do {
             request.httpBody = try jsonEncoder.encode(id)
         } catch let error {

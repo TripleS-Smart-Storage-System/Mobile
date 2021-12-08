@@ -39,6 +39,7 @@ private extension UserRepo {
         var request: URLRequest = URLRequest(url: url)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
+        request.setToken(accountWorker.token)
         
         let task: URLSessionDataTask = self.session.dataTask(
             with: request,
