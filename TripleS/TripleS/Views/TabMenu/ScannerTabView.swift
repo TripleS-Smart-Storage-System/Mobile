@@ -18,6 +18,7 @@ struct ScannerTabView: View {
             if !showQRCodeReader {
                 Button {
                     showQRCodeReader = true
+                    showLoadingIndicator = true
                 } label: {
                     VStack{
                         Image(systemName: "camera.viewfinder")
@@ -35,12 +36,12 @@ struct ScannerTabView: View {
             }
             Divider()
             if showLoadingIndicator {
-                Text("Here gonna be info")
-                    .frame(height: 200, alignment: .center)
-            } else {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
                     .scaleEffect(4, anchor: .center)
+                    .frame(height: 200, alignment: .center)
+            } else {
+                Text(qrCode ?? "No value")
                     .frame(height: 200, alignment: .center)
             }
             
@@ -52,6 +53,9 @@ struct ScannerTabView: View {
         switch result {
         case .success(let code):
             qrCode = code
+            showLoadingIndicator = false
+            print(try? qrCodeProcessor.processQRCode(value: code))
+            
         case .failure(let error):
             print("Scanning failed")
         }

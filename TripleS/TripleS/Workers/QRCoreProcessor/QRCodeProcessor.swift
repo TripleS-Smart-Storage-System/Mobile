@@ -23,16 +23,16 @@ extension QRCodeProcessor: QRCodeProcessorProtocol {
             throw QRCodeProcessorError.failedToConvertToData
         }
         
-        if let supplyModel = try? jsonDecoder.decode(
+        if let supplyProductModel = try? jsonDecoder.decode(
+            SupplyProductQRCodeModel.self,
+            from: data
+        ) {
+            return .supplyProduct(supplyProductModel)
+        } else if let supplyModel = try? jsonDecoder.decode(
             SupplyQRCodeModel.self,
             from: data
         ) {
             return .supply(supplyModel)
-        } else if let productModel = try? jsonDecoder.decode(
-            ProductQRCodeModel.self,
-            from: data
-        ) {
-            return .product(productModel)
         }
         
         throw QRCodeProcessorError.failedToDecode
