@@ -12,6 +12,7 @@ public enum SharedAPIConfiguration {
     static let user: String = "User"
     static let supply: String = "Supply"
     static let supplyProduct: String = "supply-product"
+    static let supplyProducts: String = "supply-products"
     
     static let login: String = "login"
     static let register: String = "register"

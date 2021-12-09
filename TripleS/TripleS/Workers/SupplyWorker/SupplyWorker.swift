@@ -71,7 +71,10 @@ extension SupplyWorker: SupplyWorkerProtocol {
         return self.supplyData
     }
     
-    func getSupply(id: String, completion: @escaping (Result<SupplyModel, Error>) -> Void) {
+    func getSupply(
+        id: String,
+        completion: @escaping (Result<SupplyModel, Error>) -> Void
+    ) {
         self.supplyRepo.getSupply(for: id, completion: { [weak self] (result) in
             switch result {
             case .success(let supplyData):
@@ -84,6 +87,15 @@ extension SupplyWorker: SupplyWorkerProtocol {
         })
     }
     
+    func postSupplyReceived(
+        for id: String,
+        completion: @escaping (Result<Void, Error>) -> Void
+    ) {
+        self.supplyRepo.postSupplyReceive(
+            for: id,
+            completion: completion
+        )
+    }
 }
 
 // MARK: - SupplyProductWorkerProtocol
@@ -106,4 +118,15 @@ extension SupplyWorker: SupplyProductWorkerProtocol {
         })
     }
     
+    func postSupplyProductReceived(
+        for id: String,
+        dateOfCreation: Date,
+        completion: @escaping (Result<Void, Error>) -> Void
+    ) {
+        self.supplyProductRepo.postSupplyProductReceive(
+            for: id,
+            productionDate: dateOfCreation,
+            completion: completion
+        )
+    }
 }

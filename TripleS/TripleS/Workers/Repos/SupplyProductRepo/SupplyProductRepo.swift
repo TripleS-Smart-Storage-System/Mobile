@@ -21,7 +21,7 @@ public class SupplyProductRepo {
     
     private let session = URLSession.shared
     
-    private let sharedBaseUrl: String = "\(SharedAPIConfiguration.baseUrl)/\(SharedAPIConfiguration.api)/\(SharedAPIConfiguration.supplyProduct)"
+    private let sharedBaseUrl: String = "\(SharedAPIConfiguration.baseUrl)/\(SharedAPIConfiguration.api)/\(SharedAPIConfiguration.supplyProducts)"
 }
 
 // MARK: - Private methods
@@ -33,7 +33,7 @@ private extension SupplyProductRepo {
         completion: @escaping (Result<SupplyProductModel, Error>) -> Void
     ) {
         
-        guard let url = URL(string: self.sharedBaseUrl)
+        guard let url = URL(string: "\(self.sharedBaseUrl)/\(id)")
         else {
             completion(.failure(SupplyRepoError.cannotCastToUrl))
             return
@@ -62,7 +62,7 @@ private extension SupplyProductRepo {
                 }
                 
                 guard let response = response as? HTTPURLResponse,
-                      response.statusCode == 200
+                      (response.statusCode == 200 || response.statusCode == 204)
                 else {
                     completion(.failure(SupplyRepoError.wrongStatusCode))
                     return

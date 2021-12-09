@@ -16,6 +16,10 @@ public protocol SupplyWorkerProtocol: AnyObject {
         completion: @escaping (Swift.Result<SupplyModel, Swift.Error>) -> Void
     )
     
+    func postSupplyReceived(
+        for id: String,
+        completion: @escaping (Result<Void, Error>) -> Void
+    )
 }
 
 public protocol SupplyProductWorkerProtocol: AnyObject {
@@ -24,5 +28,11 @@ public protocol SupplyProductWorkerProtocol: AnyObject {
     func getSupplyProduct(
         id: String,
         completion: @escaping (Swift.Result<SupplyProductModel, Swift.Error>) -> Void
+    )
+    
+    func postSupplyProductReceived(
+        for id: String,
+        dateOfCreation: Date,
+        completion: @escaping (Result<Void, Error>) -> Void
     )
 }

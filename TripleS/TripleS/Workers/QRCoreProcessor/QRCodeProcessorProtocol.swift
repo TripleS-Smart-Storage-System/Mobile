@@ -18,7 +18,7 @@ public struct SupplyQRCodeModel: Decodable {
 
 public struct SupplyProductQRCodeModel: Decodable {
     let id: String
-    let date: String
+    let productCreatedDate: String
 }
 
 public enum QRCodeType {

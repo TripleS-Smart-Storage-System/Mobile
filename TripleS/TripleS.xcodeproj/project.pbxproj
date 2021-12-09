@@ -259,15 +259,13 @@
 		0D4790252742D4F900E7C9D0 /* Repos */ = {
 			isa = PBXGroup;
 			children = (
-				0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */,
-				0D1665AD274DB06300E110B6 /* SharedRequestBuilder.swift */,
 				0D47902A2742D90F00E7C9D0 /* AccountRepo */,
 				0DC5FDA1275EA517008A5893 /* Extensions */,
 				0D47902D2747CB6100E7C9D0 /* RolesRepo */,
+				0DDC9A752762A0E8003E7010 /* Shared */,
 				0524EC1A275D718300134A0C /* SupplyProductRepo */,
 				0524EC10275C3FD500134A0C /* SupplyRepo */,
 				0D479032274D75AA00E7C9D0 /* UserRepo */,
-				0D04919627611F0800C269C1 /* SharedDateModel.swift */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -314,6 +312,16 @@
 				0DC5FDA3275EA727008A5893 /* QRCodeProcessorProtocol.swift */,
 			);
 			path = QRCoreProcessor;
+			sourceTree = "<group>";
+		};
+		0DDC9A752762A0E8003E7010 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */,
+				0D04919627611F0800C269C1 /* SharedDateModel.swift */,
+				0D1665AD274DB06300E110B6 /* SharedRequestBuilder.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

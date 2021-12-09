@@ -49,7 +49,23 @@ struct ShortDescriptionView: View {
                 }
                 .swipeActions(edge: .leading, allowsFullSwipe: true) {
                     Button {
-                        print("1") // TODO: Call SupplyWorker to POST SupplyProduct/receive and clean lower part of ScannerTabView
+                        supplyWorker.postSupplyProductReceived(
+                            for: qrCodeSupplyProductData!.id,
+                               dateOfCreation: qrCodeSupplyProductData!.productCreatedDate.value,
+                            completion: { result in
+                                   
+                                switch result {
+                                    
+                                case .success:
+                                    // TODO: - perform actions
+                                    break
+                                    
+                                case .failure(let error):
+                                    print(error)
+                                }
+                            }
+                        )
+                        
                     } label: {
                         Image(systemName: "checkmark.circle")
                     }
@@ -77,7 +93,21 @@ struct ShortDescriptionView: View {
                     }
                     .swipeActions(edge: .leading, allowsFullSwipe: true) {
                         Button {
-                            print("3") // TODO: Call SupplyWorker to POST Supply/receive and clean lower part of ScannerTabView
+                            supplyWorker.postSupplyReceived(
+                                for: qrCodeSupplyData!.id,
+                                   completion: { result in
+                                       
+                                       switch result {
+                                           
+                                       case .success:
+                                           // TODO: - perform actions
+                                           break
+                                           
+                                       case .failure(let error):
+                                           print(error)
+                                       }
+                                   }
+                            )
                         } label: {
                             Image(systemName: "checkmark.circle")
                         }
