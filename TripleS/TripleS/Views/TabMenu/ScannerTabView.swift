@@ -47,11 +47,54 @@ struct ScannerTabView: View {
                     ShortDescriptionView(qrCodeSupplyProductData: $qrCodeSupplyProductData, qrCodeSupplyData: .constant(nil))
                         .frame(height: 200, alignment: .center)
                 } else {
-                    if qrCodeSupplyData != nil {
-                        ShortDescriptionView(qrCodeSupplyProductData: .constant(nil), qrCodeSupplyData: $qrCodeSupplyData)
+                    if qrCodeSupplyData != nil || qrCodeSupplyProductData != nil {
+                        ShortDescriptionView(qrCodeSupplyProductData: $qrCodeSupplyProductData, qrCodeSupplyData: $qrCodeSupplyData)
                             .frame(height: 200, alignment: .center)
                     } else {
-                        Text("No Data")
+                        VStack {
+                            Text(qrCode ?? "No Data")
+                            if qrCode != nil {
+                                Button (action: {
+                                    do {
+                                        switch try qrCodeProcessor.processQRCode(value: qrCode ?? "") {
+                                        case .supplyProduct(let supplyProduct):
+                                            supplyWorker.getSupplyProduct(id: supplyProduct.id, completion: { result in
+                                                switch result {
+                                                    
+                                                case .success:
+                                                    qrCodeSupplyProductData = supplyWorker.supplyProduct
+                                                    qrCodeSupplyData = nil
+                                                    
+                                                case .failure(let error):
+                                                    // TODO: - handle error
+                                                    print("\(#function)): \(error)")
+                                                }
+                                            })
+                                        case .supply(let supply):
+                                            supplyWorker.getSupply(id: supply.id, completion: {
+                                                result in
+                                                switch result {
+                                                    
+                                                case .success:
+                                                    qrCodeSupplyProductData = nil
+                                                    qrCodeSupplyData = supplyWorker.supply
+                                                    
+                                                case .failure(let error):
+                                                    // TODO: - handle error
+                                                    print("\(#function)): \(error)")
+                                                }
+                                            })
+                                                
+                                        }
+                                    } catch {
+                                        debugPrint(error.localizedDescription)
+                                    }
+                                }) {
+                                    Text("Get data")
+                                        .font(.title)
+                                }
+                            }
+                        }
                             .frame(height: 200, alignment: .center)
                     }
                 }

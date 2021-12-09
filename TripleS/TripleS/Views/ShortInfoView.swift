@@ -66,32 +66,36 @@ struct ShortDescriptionView: View {
                 }
                 .frame(height: 200)
             } else {
-                VStack(alignment: .leading, spacing: 25) {
-                    Text("Id: " + String(qrCodeSupplyData!.id))
+                if qrCodeSupplyData != nil {
+                    VStack(alignment: .leading, spacing: 25) {
+                        Text("Id: " + String(qrCodeSupplyData!.id))
+                            .font(.system(size: 25))
+                        Text("Created: " + qrCodeSupplyData!.supplyCreatedUser!.name + " " + qrCodeSupplyData!.supplyCreatedUser!.surName )
+                            .font(.system(size: 25))
+                        Text("Ordered date: " + getDateFormatter().string(from: qrCodeSupplyData!.dateOrdered.value))
                         .font(.system(size: 25))
-                    Text("Created: " + qrCodeSupplyData!.supplyCreatedUser!.name + " " + qrCodeSupplyData!.supplyCreatedUser!.surName )
-                        .font(.system(size: 25))
-                    Text("Ordered date: " + getDateFormatter().string(from: qrCodeSupplyData!.dateOrdered.value))
-                    .font(.system(size: 25))
-                }
-                .swipeActions(edge: .leading, allowsFullSwipe: true) {
-                    Button {
-                        print("3")
-                    } label: {
-                        Image(systemName: "checkmark.circle")
                     }
-                    .tint(.green)
-                
-                }
-                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                    Button {
-                        print("4")
-                    } label: {
-                        Image(systemName: "x.circle")
+                    .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                        Button {
+                            print("3")
+                        } label: {
+                            Image(systemName: "checkmark.circle")
+                        }
+                        .tint(.green)
+                    
                     }
-                    .tint(.red)
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                        Button {
+                            print("4")
+                        } label: {
+                            Image(systemName: "x.circle")
+                        }
+                        .tint(.red)
+                    }
+                    .frame(height: 200)
+                } else {
+                    Text("Try again")
                 }
-                .frame(height: 200)
             }
             
         }

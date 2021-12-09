@@ -16,6 +16,11 @@ public protocol SupplyWorkerProtocol: AnyObject {
         completion: @escaping (Swift.Result<Void, Swift.Error>) -> Void
     )
     
+}
+
+public protocol SupplyProductWorkerProtocol: AnyObject {
+    var supplyProduct: SupplyProductModel? { get }
+    
     func getSupplyProduct(
         id: String,
         completion: @escaping (Swift.Result<Void, Swift.Error>) -> Void
