@@ -71,11 +71,12 @@ extension SupplyWorker: SupplyWorkerProtocol {
         return self.supplyData
     }
     
-    func getSupply(id: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    func getSupply(id: String, completion: @escaping (Result<SupplyModel, Error>) -> Void) {
         self.supplyRepo.getSupply(for: id, completion: { [weak self] (result) in
             switch result {
             case .success(let supplyData):
                 self?.supplyData = supplyData
+                completion(.success(supplyData))
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -92,11 +93,12 @@ extension SupplyWorker: SupplyProductWorkerProtocol {
         return self.supplyProductData
     }
     
-    func getSupplyProduct(id: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        self.supplyRepo.getSupply(for: id, completion: { [weak self] (result) in
+    func getSupplyProduct(id: String, completion: @escaping (Result<SupplyProductModel, Error>) -> Void) {
+        self.supplyProductRepo.getSupplyProduct(for: id, completion: { [weak self] (result) in
             switch result {
             case .success(let supplyData):
-                self?.supplyData = supplyData
+                self?.supplyProductData = supplyData
+                completion(.success(supplyData))
             case .failure(let error):
                 completion(.failure(error))
             }

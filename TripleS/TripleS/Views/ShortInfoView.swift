@@ -49,7 +49,7 @@ struct ShortDescriptionView: View {
                 }
                 .swipeActions(edge: .leading, allowsFullSwipe: true) {
                     Button {
-                        print("1")
+                        print("1") // TODO: Call SupplyWorker to POST SupplyProduct/receive and clean lower part of ScannerTabView
                     } label: {
                         Image(systemName: "checkmark.circle")
                     }
@@ -58,7 +58,7 @@ struct ShortDescriptionView: View {
                 }
                 .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                     Button {
-                        print("2")
+                        print("2") // TODO: Show Alert about bad data and Clean lower part of ScannerTabView
                     } label: {
                         Image(systemName: "x.circle")
                     }
@@ -77,7 +77,7 @@ struct ShortDescriptionView: View {
                     }
                     .swipeActions(edge: .leading, allowsFullSwipe: true) {
                         Button {
-                            print("3")
+                            print("3") // TODO: Call SupplyWorker to POST Supply/receive and clean lower part of ScannerTabView
                         } label: {
                             Image(systemName: "checkmark.circle")
                         }
@@ -86,7 +86,7 @@ struct ShortDescriptionView: View {
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                         Button {
-                            print("4")
+                            print("4") // TODO: Show Alert about bad data and Clean lower part of ScannerTabView
                         } label: {
                             Image(systemName: "x.circle")
                         }

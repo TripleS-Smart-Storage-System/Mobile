@@ -32,9 +32,9 @@ private extension SupplyRepo {
         id: String,
         completion: @escaping (Result<SupplyModel, Error>) -> Void
     ) {
-        struct SupplyModel: Codable {
-            let id: String
-        }
+//        struct SupplyModel: Codable {
+//            let id: String
+//        }
         
         let stringURL: String = "\(self.sharedBaseUrl)/\(id)"
         guard let url = URL(string: stringURL)
@@ -43,21 +43,21 @@ private extension SupplyRepo {
             return
         }
         
-        let httpBody: SupplyModel = .init(
-            id: id
-        )
+//        let httpBody: SupplyModel = .init(
+//            id: id
+//        )
         
         var request: URLRequest = URLRequest(url: url)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
         request.setToken(accountWorker.token)
         
-        do {
-            request.httpBody = try jsonEncoder.encode(httpBody)
-        } catch let error {
-            completion(.failure(error))
-            return
-        }
+//        do {
+//            request.httpBody = try jsonEncoder.encode(httpBody)
+//        } catch let error {
+//            completion(.failure(error))
+//            return
+//        }
         
         let task: URLSessionDataTask = self.session.dataTask(
             with: request,
@@ -85,7 +85,7 @@ private extension SupplyRepo {
                         return
                     }
                     
-                    completion(.success(decodedResponse.supply))
+                    completion(.success(decodedResponse))
                 } catch let error {
                     completion(.failure(error))
                     return
@@ -142,23 +142,19 @@ private extension SupplyRepo {
         
     }
     
-    struct ResponseModel: Decodable {
-        let supply: SupplyModel
-    }
-    
     func handleSupplyResponse(
         for data: Data?
-    ) throws -> ResponseModel {
+    ) throws -> SupplyModel {
         
         guard let data = data
         else {
             throw SupplyRepoError.noDataInResponse
         }
         
-        let response: ResponseModel
+        let response: SupplyModel
         do {
             response = try jsonDecoder.decode(
-                ResponseModel.self,
+                SupplyModel.self,
                 from: data
             )
         } catch let error {

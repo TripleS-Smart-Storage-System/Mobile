@@ -13,7 +13,7 @@ public protocol SupplyWorkerProtocol: AnyObject {
     
     func getSupply(
         id: String,
-        completion: @escaping (Swift.Result<Void, Swift.Error>) -> Void
+        completion: @escaping (Swift.Result<SupplyModel, Swift.Error>) -> Void
     )
     
 }
@@ -23,6 +23,6 @@ public protocol SupplyProductWorkerProtocol: AnyObject {
     
     func getSupplyProduct(
         id: String,
-        completion: @escaping (Swift.Result<Void, Swift.Error>) -> Void
+        completion: @escaping (Swift.Result<SupplyProductModel, Swift.Error>) -> Void
     )
 }

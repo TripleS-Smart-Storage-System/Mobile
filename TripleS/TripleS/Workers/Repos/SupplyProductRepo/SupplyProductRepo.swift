@@ -44,12 +44,12 @@ private extension SupplyProductRepo {
         request.httpMethod = "GET"
         request.setToken(accountWorker.token)
         
-        do {
-            request.httpBody = try jsonEncoder.encode(id)
-        } catch let error {
-            completion(.failure(error))
-            return
-        }
+//        do {
+//            request.httpBody = try jsonEncoder.encode(id)
+//        } catch let error {
+//            completion(.failure(error))
+//            return
+//        }
         
         let task: URLSessionDataTask = self.session.dataTask(
             with: request,
@@ -77,7 +77,7 @@ private extension SupplyProductRepo {
                         return
                     }
                     
-                    completion(.success(decodedResponse.supplyProduct))
+                    completion(.success(decodedResponse))
                 } catch let error {
                     completion(.failure(error))
                     return
@@ -146,23 +146,19 @@ private extension SupplyProductRepo {
         
     }
     
-    struct ResponseModel: Decodable {
-        let supplyProduct: SupplyProductModel
-    }
-    
     func handleSupplyProductResponse(
         for data: Data?
-    ) throws -> ResponseModel {
+    ) throws -> SupplyProductModel {
         
         guard let data = data
         else {
             throw SupplyRepoError.noDataInResponse
         }
         
-        let response: ResponseModel
+        let response: SupplyProductModel
         do {
             response = try jsonDecoder.decode(
-                ResponseModel.self,
+                SupplyProductModel.self,
                 from: data
             )
         } catch let error {

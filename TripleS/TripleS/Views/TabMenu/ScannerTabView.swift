@@ -33,7 +33,7 @@ struct ScannerTabView: View {
                     .frame(height: 430, alignment: .center)
                 }
             } else {
-                CodeScannerView(codeTypes: [.qr], simulatedData: "Simulator data",completion: self.handleScan)
+                CodeScannerView(codeTypes: [.qr], simulatedData: testSupplyProductDataForQR,completion: self.handleScan) // testSupplyDataForQR
                     .frame(height: 430, alignment: .center)
             }
             Divider()
@@ -61,8 +61,8 @@ struct ScannerTabView: View {
                                             supplyWorker.getSupplyProduct(id: supplyProduct.id, completion: { result in
                                                 switch result {
                                                     
-                                                case .success:
-                                                    qrCodeSupplyProductData = supplyWorker.supplyProduct
+                                                case .success(let supplyProduct):
+                                                    qrCodeSupplyProductData = supplyProduct
                                                     qrCodeSupplyData = nil
                                                     
                                                 case .failure(let error):
@@ -75,9 +75,9 @@ struct ScannerTabView: View {
                                                 result in
                                                 switch result {
                                                     
-                                                case .success:
+                                                case .success(let supply):
                                                     qrCodeSupplyProductData = nil
-                                                    qrCodeSupplyData = supplyWorker.supply
+                                                    qrCodeSupplyData = supply
                                                     
                                                 case .failure(let error):
                                                     // TODO: - handle error
@@ -118,6 +118,9 @@ struct ScannerTabView: View {
         }
     }
 }
+
+let testSupplyDataForQR = "{\"id\": \"5859013b-6bda-4379-940e-08d9baf5a5e7\"}"
+let testSupplyProductDataForQR = "{\"id\": \"1f3420b1-76a6-4667-997a-08d9baf49237\",  \"productCreatedDate\": \"2021-11-09T16:30:34\"}"
 
 //let testD = Dataa(id: 1, name: "Rorrrrrrr", desc: "Longds lsdkfk lsdkfl dslf ldksfl dsfkl j sdkdjsjdf jsdfjkjsdkfj kjsdf j sdf sdf sdf kfj ksjf jsdfk jksdf jks sjk jsk jdkfffds", date: Date(), num: 5, unit: "kg", shelfLife: 743.4)
 

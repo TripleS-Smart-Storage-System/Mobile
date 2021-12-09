@@ -10,7 +10,7 @@ import Foundation
 struct SharedDateModel: Codable, Equatable {
     private static var dateFormatter: DateFormatter = {
         let formatter: DateFormatter = .init()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         return formatter
     }()
     

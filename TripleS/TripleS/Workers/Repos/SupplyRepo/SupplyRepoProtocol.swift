@@ -24,9 +24,9 @@ public protocol SupplyAPIProtocol: AnyObject {
 public struct SupplyModel: Codable, Equatable {
     let id: String
     let supplyCreatedUserId: String
-    let acceptUserId: String
+    let acceptUserId: String?
     let dateOrdered: SharedDateModel
-    let dateAccepted: SharedDateModel
+    let dateAccepted: SharedDateModel?
     let isArrived: Bool
     let acceptUser: User?
     let supplyCreatedUser: User?
