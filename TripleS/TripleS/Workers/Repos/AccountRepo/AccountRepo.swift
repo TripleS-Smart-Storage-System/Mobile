@@ -93,11 +93,11 @@ private extension AccountRepo {
         surname: String,
         email: String,
         password: String,
-        completion: @escaping (Result<(Identifier, UserToken), Error>) -> Void
+        completion: @escaping (Result<Void, Error>) -> Void
     ) {
         struct RegisterModel: Codable {
             let name: String
-            let surname: String
+            let surName: String
             let email: String
             let password: String
         }
@@ -110,7 +110,7 @@ private extension AccountRepo {
         
         let httpBody: RegisterModel = .init(
             name: name,
-            surname: surname,
+            surName: surname,
             email: email,
             password: password
         )
@@ -141,20 +141,7 @@ private extension AccountRepo {
                     return
                 }
                 
-                do {
-                    let decodedResponse = try self?.handleAuthResponse(for: data)
-                    
-                    guard let decodedResponse = decodedResponse
-                    else {
-                        completion(.failure(AccountRepoError.unknownError))
-                        return
-                    }
-                    
-                    completion(.success((decodedResponse.id, decodedResponse.token)))
-                } catch let error {
-                    completion(.failure(error))
-                    return
-                }
+                completion(.success(()))
             }
         )
         
@@ -213,7 +200,7 @@ extension AccountRepo: AccountAPIProtocol {
         surname: String,
         email: String,
         password: String,
-        completion: @escaping (Result<(Identifier, UserToken), Error>) -> Void
+        completion: @escaping (Result<Void, Error>) -> Void
     ) {
         self.performRegisterTask(
             name: name,

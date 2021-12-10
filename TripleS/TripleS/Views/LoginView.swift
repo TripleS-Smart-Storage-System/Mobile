@@ -24,6 +24,7 @@ struct LoginView: View {
     @State var isRegistration: Bool = false
     
     @State var alert = CustomAlert(title: "", message: "")
+    @State private var showingAlert = false
     
     var body: some View {
         NavigationView {
@@ -97,6 +98,11 @@ struct LoginView: View {
                             Text("Sign in")
                                 .font(.title)
                         }
+                        .alert("Registration completed. Please wait admin's approval", isPresented: $showingAlert) {
+                            Button("OK") {
+                                changeLoginView()
+                            }
+                        }
                         Spacer()
                         Button(action:{
                             changeLoginView()
@@ -167,7 +173,6 @@ struct LoginView: View {
 //        }
         
         accountWorker.register(
-            // TODO: - remove hardcoded values
             name: FirstName,
             surname: LastName,
             email: email,
@@ -176,12 +181,12 @@ struct LoginView: View {
                 
                 switch result {
                     
-                case .success():
-                    willMoveToNextScreen = true
+                case .success:
+                    showingAlert = true
                     
                 case .failure(let error):
                     // TODO: - handle error
-                    print("\(#function)): \(error)")
+                    print("\(#function): \(error)")
                 }
             }
         )

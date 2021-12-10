@@ -16,6 +16,6 @@ public protocol AccountAPIProtocol: AnyObject {
         surname: String,
         email: String,
         password: String,
-        completion: @escaping (Swift.Result<(Identifier, UserToken), Swift.Error>) -> Void
+        completion: @escaping (Swift.Result<Void, Swift.Error>) -> Void
     )
 }

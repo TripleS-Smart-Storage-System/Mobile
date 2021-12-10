@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0524EC0D275C3FB800134A0C /* SupplyRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524EC0C275C3FB800134A0C /* SupplyRepo.swift */; };
+		0524EC0F275C3FCB00134A0C /* SupplyRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524EC0E275C3FCB00134A0C /* SupplyRepoProtocol.swift */; };
+		0524EC12275D4A0F00134A0C /* SupplyWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524EC11275D4A0F00134A0C /* SupplyWorker.swift */; };
+		0524EC14275D4A3800134A0C /* SupplyWorkerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524EC13275D4A3800134A0C /* SupplyWorkerProtocol.swift */; };
+		0524EC17275D716B00134A0C /* SupplyProductRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524EC16275D716B00134A0C /* SupplyProductRepo.swift */; };
+		0524EC19275D717D00134A0C /* SupplyProductRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524EC18275D717D00134A0C /* SupplyProductRepoProtocol.swift */; };
 		05358964274BFD6E00FBB5DF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05358963274BFD6E00FBB5DF /* ProfileView.swift */; };
 		05358968274C014800FBB5DF /* ChangeProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05358967274C014800FBB5DF /* ChangeProfileView.swift */; };
 		0535896A274C025000FBB5DF /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05358969274C025000FBB5DF /* ChangePasswordView.swift */; };
@@ -19,8 +25,9 @@
 		056327842731BE8900388A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056327832731BE8900388A4B /* Preview Assets.xcassets */; };
 		0576B7AB274E6C2B00730B9D /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 0576B7AA274E6C2B00730B9D /* CodeScanner */; };
 		0576B7AD274E6CB100730B9D /* ScannerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0576B7AC274E6CB100730B9D /* ScannerTabView.swift */; };
-		0D166594274D9C6500E110B6 /* BarcodeReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D166592274D9C6500E110B6 /* BarcodeReaderVC.swift */; };
-		0D166595274D9C6500E110B6 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D166593274D9C6500E110B6 /* BarcodeReaderViewController.swift */; };
+		05A2D92727613327001900C9 /* ShortInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2D92627613327001900C9 /* ShortInfoView.swift */; };
+		0D049195275FE7B800C269C1 /* SharedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D049194275FE7B700C269C1 /* SharedProperties.swift */; };
+		0D04919727611F0800C269C1 /* SharedDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D04919627611F0800C269C1 /* SharedDateModel.swift */; };
 		0D166598274D9C7700E110B6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D166596274D9C7700E110B6 /* CustomAlert.swift */; };
 		0D166599274D9C7700E110B6 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D166597274D9C7700E110B6 /* Product.swift */; };
 		0D16659B274D9C9D00E110B6 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16659A274D9C9D00E110B6 /* LoginError.swift */; };
@@ -39,9 +46,18 @@
 		0D4790312747CB7E00E7C9D0 /* RolesRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4790302747CB7E00E7C9D0 /* RolesRepoProtocol.swift */; };
 		0D479034274D75CA00E7C9D0 /* UserRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D479033274D75CA00E7C9D0 /* UserRepo.swift */; };
 		0D479036274D75D500E7C9D0 /* UserRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D479035274D75D500E7C9D0 /* UserRepoProtocol.swift */; };
+		0DC5FDA0275EA4B8008A5893 /* URLRequest+setToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5FD9F275EA4B8008A5893 /* URLRequest+setToken.swift */; };
+		0DC5FDA4275EA727008A5893 /* QRCodeProcessorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5FDA3275EA727008A5893 /* QRCodeProcessorProtocol.swift */; };
+		0DC5FDA6275EA72F008A5893 /* QRCodeProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5FDA5275EA72F008A5893 /* QRCodeProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0524EC0C275C3FB800134A0C /* SupplyRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyRepo.swift; sourceTree = "<group>"; };
+		0524EC0E275C3FCB00134A0C /* SupplyRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyRepoProtocol.swift; sourceTree = "<group>"; };
+		0524EC11275D4A0F00134A0C /* SupplyWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyWorker.swift; sourceTree = "<group>"; };
+		0524EC13275D4A3800134A0C /* SupplyWorkerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyWorkerProtocol.swift; sourceTree = "<group>"; };
+		0524EC16275D716B00134A0C /* SupplyProductRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyProductRepo.swift; sourceTree = "<group>"; };
+		0524EC18275D717D00134A0C /* SupplyProductRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyProductRepoProtocol.swift; sourceTree = "<group>"; };
 		05358963274BFD6E00FBB5DF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		05358967274C014800FBB5DF /* ChangeProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileView.swift; sourceTree = "<group>"; };
 		05358969274C025000FBB5DF /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
@@ -54,8 +70,9 @@
 		056327802731BE8900388A4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		056327832731BE8900388A4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0576B7AC274E6CB100730B9D /* ScannerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerTabView.swift; sourceTree = "<group>"; };
-		0D166592274D9C6500E110B6 /* BarcodeReaderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderVC.swift; sourceTree = "<group>"; };
-		0D166593274D9C6500E110B6 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
+		05A2D92627613327001900C9 /* ShortInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortInfoView.swift; sourceTree = "<group>"; };
+		0D049194275FE7B700C269C1 /* SharedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProperties.swift; sourceTree = "<group>"; };
+		0D04919627611F0800C269C1 /* SharedDateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDateModel.swift; sourceTree = "<group>"; };
 		0D166596274D9C7700E110B6 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		0D166597274D9C7700E110B6 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0D16659A274D9C9D00E110B6 /* LoginError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
@@ -74,6 +91,9 @@
 		0D4790302747CB7E00E7C9D0 /* RolesRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesRepoProtocol.swift; sourceTree = "<group>"; };
 		0D479033274D75CA00E7C9D0 /* UserRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepo.swift; sourceTree = "<group>"; };
 		0D479035274D75D500E7C9D0 /* UserRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoProtocol.swift; sourceTree = "<group>"; };
+		0DC5FD9F275EA4B8008A5893 /* URLRequest+setToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+setToken.swift"; sourceTree = "<group>"; };
+		0DC5FDA3275EA727008A5893 /* QRCodeProcessorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeProcessorProtocol.swift; sourceTree = "<group>"; };
+		0DC5FDA5275EA72F008A5893 /* QRCodeProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,12 +108,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0524EC10275C3FD500134A0C /* SupplyRepo */ = {
+			isa = PBXGroup;
+			children = (
+				0524EC0C275C3FB800134A0C /* SupplyRepo.swift */,
+				0524EC0E275C3FCB00134A0C /* SupplyRepoProtocol.swift */,
+			);
+			path = SupplyRepo;
+			sourceTree = "<group>";
+		};
+		0524EC15275D4A4500134A0C /* SupplyWorker */ = {
+			isa = PBXGroup;
+			children = (
+				0524EC11275D4A0F00134A0C /* SupplyWorker.swift */,
+				0524EC13275D4A3800134A0C /* SupplyWorkerProtocol.swift */,
+			);
+			path = SupplyWorker;
+			sourceTree = "<group>";
+		};
+		0524EC1A275D718300134A0C /* SupplyProductRepo */ = {
+			isa = PBXGroup;
+			children = (
+				0524EC16275D716B00134A0C /* SupplyProductRepo.swift */,
+				0524EC18275D717D00134A0C /* SupplyProductRepoProtocol.swift */,
+			);
+			path = SupplyProductRepo;
+			sourceTree = "<group>";
+		};
 		05358971274D498300FBB5DF /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				05358975274D4A9700FBB5DF /* TabMenu */,
 				05358969274C025000FBB5DF /* ChangePasswordView.swift */,
 				05358967274C014800FBB5DF /* ChangeProfileView.swift */,
+				05A2D92627613327001900C9 /* ShortInfoView.swift */,
 				0D16659C274D9CAF00E110B6 /* CreateNewSupplyView.swift */,
 				0D16659D274D9CAF00E110B6 /* LoginView.swift */,
 				05358973274D49B600FBB5DF /* SupportViews */,
@@ -118,15 +166,6 @@
 				0D1665A2274D9CC100E110B6 /* PasswordView.swift */,
 			);
 			path = SupportViews;
-			sourceTree = "<group>";
-		};
-		05358974274D4A6800FBB5DF /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				0D166592274D9C6500E110B6 /* BarcodeReaderVC.swift */,
-				0D166593274D9C6500E110B6 /* BarcodeReaderViewController.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		05358975274D4A9700FBB5DF /* TabMenu */ = {
@@ -169,10 +208,10 @@
 		0563277B2731BE8500388A4B /* TripleS */ = {
 			isa = PBXGroup;
 			children = (
+				0D049194275FE7B700C269C1 /* SharedProperties.swift */,
 				0D1665A6274D9D5400E110B6 /* Default */,
 				05358972274D499600FBB5DF /* Models */,
 				056327822731BE8900388A4B /* Preview Content */,
-				05358974274D4A6800FBB5DF /* ViewControllers */,
 				05358971274D498300FBB5DF /* Views */,
 				0D1665A7274D9D7100E110B6 /* Workers */,
 			);
@@ -200,7 +239,9 @@
 		0D1665A7274D9D7100E110B6 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				0DC5FDA2275EA70E008A5893 /* QRCoreProcessor */,
 				0D1665A8274D9EDE00E110B6 /* AccountWorker */,
+				0524EC15275D4A4500134A0C /* SupplyWorker */,
 				0D4790252742D4F900E7C9D0 /* Repos */,
 			);
 			path = Workers;
@@ -218,10 +259,12 @@
 		0D4790252742D4F900E7C9D0 /* Repos */ = {
 			isa = PBXGroup;
 			children = (
-				0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */,
-				0D1665AD274DB06300E110B6 /* SharedRequestBuilder.swift */,
 				0D47902A2742D90F00E7C9D0 /* AccountRepo */,
+				0DC5FDA1275EA517008A5893 /* Extensions */,
 				0D47902D2747CB6100E7C9D0 /* RolesRepo */,
+				0DDC9A752762A0E8003E7010 /* Shared */,
+				0524EC1A275D718300134A0C /* SupplyProductRepo */,
+				0524EC10275C3FD500134A0C /* SupplyRepo */,
 				0D479032274D75AA00E7C9D0 /* UserRepo */,
 			);
 			path = Repos;
@@ -252,6 +295,33 @@
 				0D479035274D75D500E7C9D0 /* UserRepoProtocol.swift */,
 			);
 			path = UserRepo;
+			sourceTree = "<group>";
+		};
+		0DC5FDA1275EA517008A5893 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0DC5FD9F275EA4B8008A5893 /* URLRequest+setToken.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0DC5FDA2275EA70E008A5893 /* QRCoreProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				0DC5FDA5275EA72F008A5893 /* QRCodeProcessor.swift */,
+				0DC5FDA3275EA727008A5893 /* QRCodeProcessorProtocol.swift */,
+			);
+			path = QRCoreProcessor;
+			sourceTree = "<group>";
+		};
+		0DDC9A752762A0E8003E7010 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0D4790282742D5F000E7C9D0 /* SharedAPIConfiguration.swift */,
+				0D04919627611F0800C269C1 /* SharedDateModel.swift */,
+				0D1665AD274DB06300E110B6 /* SharedRequestBuilder.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,19 +400,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D166594274D9C6500E110B6 /* BarcodeReaderVC.swift in Sources */,
+				0DC5FDA6275EA72F008A5893 /* QRCodeProcessor.swift in Sources */,
+				05A2D92727613327001900C9 /* ShortInfoView.swift in Sources */,
 				05358968274C014800FBB5DF /* ChangeProfileView.swift in Sources */,
+				0DC5FDA0275EA4B8008A5893 /* URLRequest+setToken.swift in Sources */,
 				0D1665AE274DB06300E110B6 /* SharedRequestBuilder.swift in Sources */,
 				0D16659B274D9C9D00E110B6 /* LoginError.swift in Sources */,
 				05358977274D50FF00FBB5DF /* PasswordChangeError.swift in Sources */,
 				05358964274BFD6E00FBB5DF /* ProfileView.swift in Sources */,
-				0D166595274D9C6500E110B6 /* BarcodeReaderViewController.swift in Sources */,
 				0535896C274C063000FBB5DF /* User.swift in Sources */,
 				0563277F2731BE8500388A4B /* ContentView.swift in Sources */,
 				0D1665A0274D9CAF00E110B6 /* LoginView.swift in Sources */,
 				0D4790312747CB7E00E7C9D0 /* RolesRepoProtocol.swift in Sources */,
 				0535896A274C025000FBB5DF /* ChangePasswordView.swift in Sources */,
 				0D166599274D9C7700E110B6 /* Product.swift in Sources */,
+				0D04919727611F0800C269C1 /* SharedDateModel.swift in Sources */,
+				0DC5FDA4275EA727008A5893 /* QRCodeProcessorProtocol.swift in Sources */,
 				0563277D2731BE8500388A4B /* TripleSApp.swift in Sources */,
 				0D4790292742D5F000E7C9D0 /* SharedAPIConfiguration.swift in Sources */,
 				0D1665A1274D9CAF00E110B6 /* AllTabsView.swift in Sources */,
@@ -350,13 +423,20 @@
 				0D1665A5274D9CCB00E110B6 /* WarehouseView.swift in Sources */,
 				0D1665AA274D9EF200E110B6 /* AccountWorker.swift in Sources */,
 				0D47902C2742D92000E7C9D0 /* AccountRepoProtocol.swift in Sources */,
+				0524EC12275D4A0F00134A0C /* SupplyWorker.swift in Sources */,
 				0D479036274D75D500E7C9D0 /* UserRepoProtocol.swift in Sources */,
 				0D1665AC274D9EFB00E110B6 /* AccountWorkerProtocol.swift in Sources */,
 				0535897A274D5DA900FBB5DF /* ProfileChangeError.swift in Sources */,
+				0524EC17275D716B00134A0C /* SupplyProductRepo.swift in Sources */,
+				0D049195275FE7B800C269C1 /* SharedProperties.swift in Sources */,
 				0D1665A3274D9CC100E110B6 /* PasswordView.swift in Sources */,
+				0524EC14275D4A3800134A0C /* SupplyWorkerProtocol.swift in Sources */,
 				0D16659F274D9CAF00E110B6 /* CreateNewSupplyView.swift in Sources */,
+				0524EC0F275C3FCB00134A0C /* SupplyRepoProtocol.swift in Sources */,
 				0D479034274D75CA00E7C9D0 /* UserRepo.swift in Sources */,
+				0524EC0D275C3FB800134A0C /* SupplyRepo.swift in Sources */,
 				0D47902F2747CB7400E7C9D0 /* RolesRepo.swift in Sources */,
+				0524EC19275D717D00134A0C /* SupplyProductRepoProtocol.swift in Sources */,
 				0D166598274D9C7700E110B6 /* CustomAlert.swift in Sources */,
 				0576B7AD274E6CB100730B9D /* ScannerTabView.swift in Sources */,
 			);
@@ -489,6 +569,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TripleS/Preview Content\"";
+				DEVELOPMENT_TEAM = 8C263W5N55;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app need to use your camera";
@@ -518,6 +599,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TripleS/Preview Content\"";
+				DEVELOPMENT_TEAM = 8C263W5N55;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app need to use your camera";
