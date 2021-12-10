@@ -21,7 +21,7 @@ public class SupplyProductRepo {
     
     private let session = URLSession.shared
     
-    private let sharedBaseUrl: String = "\(SharedAPIConfiguration.baseUrl)/\(SharedAPIConfiguration.api)/\(SharedAPIConfiguration.supplyProducts)"
+    private let sharedBaseUrl: String = "\(SharedAPIConfiguration.baseUrl)/\(SharedAPIConfiguration.api)/\(SharedAPIConfiguration.supplyProduct)"
 }
 
 // MARK: - Private methods
@@ -33,13 +33,15 @@ private extension SupplyProductRepo {
         completion: @escaping (Result<SupplyProductModel, Error>) -> Void
     ) {
         
-        guard let url = URL(string: "\(self.sharedBaseUrl)/\(id)")
+        guard var url = URLComponents(string: "\(self.sharedBaseUrl)")
         else {
             completion(.failure(SupplyRepoError.cannotCastToUrl))
             return
         }
         
-        var request: URLRequest = URLRequest(url: url)
+        url.queryItems = [ URLQueryItem(name: "id",value: id) ]
+        
+        var request: URLRequest = URLRequest(url: url.url!)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
         request.setToken(accountWorker.token)

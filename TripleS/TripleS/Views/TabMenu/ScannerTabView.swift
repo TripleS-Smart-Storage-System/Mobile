@@ -119,7 +119,7 @@ struct ScannerTabView: View {
 }
 
 let testSupplyDataForQR = "{\"id\": \"5859013b-6bda-4379-940e-08d9baf5a5e7\"}"
-let testSupplyProductDataForQR = "{\"id\": \"6913b39b-b306-40dc-9979-08d9baf49237\",\"productCreatedDate\": \"2021-11-09T16:30:34\"}"
+let testSupplyProductDataForQR = "{\"id\": \"6913b39b-b306-40dc-9979-08d9baf49237\", \"productCreatedDate\": \"2021-11-09T16:30:34\"}"
 
 struct ScannerTabView_Previews: PreviewProvider {
     static var previews: some View {
