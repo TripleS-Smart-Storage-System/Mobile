@@ -12,7 +12,6 @@ struct ScannerTabView: View {
     @State private var qrCode: String?
     @State private var showQRCodeReader = false
     @State private var showLoadingIndicator = false
-//    @State private var qrCodeData: Dataa = testD
     @State private var qrCodeSupplyProductData: SupplyProductModel?
     @State private var qrCodeSupplyData: SupplyModel?
     var body: some View {
@@ -33,7 +32,7 @@ struct ScannerTabView: View {
                     .frame(height: 430, alignment: .center)
                 }
             } else {
-                CodeScannerView(codeTypes: [.qr], simulatedData: testSupplyProductDataForQR,completion: self.handleScan) // testSupplyDataForQR
+                CodeScannerView(codeTypes: [.qr], simulatedData: testSupplyProductDataForQR, completion: self.handleScan) // testSupplyDataForQR, testSupplyProductDataForQR
                     .frame(height: 430, alignment: .center)
             }
             Divider()
@@ -44,15 +43,15 @@ struct ScannerTabView: View {
                     .frame(height: 200, alignment: .center)
             } else {
                 if qrCodeSupplyProductData != nil {
-                    ShortDescriptionView(qrCodeSupplyProductData: $qrCodeSupplyProductData, qrCodeSupplyData: .constant(nil))
+                    ShortDescriptionView(qrCode: $qrCode, qrCodeSupplyProductData: $qrCodeSupplyProductData, qrCodeSupplyData: .constant(nil))
                         .frame(height: 200, alignment: .center)
                 } else {
-                    if qrCodeSupplyData != nil || qrCodeSupplyProductData != nil {
-                        ShortDescriptionView(qrCodeSupplyProductData: $qrCodeSupplyProductData, qrCodeSupplyData: $qrCodeSupplyData)
+                    if qrCodeSupplyData != nil {
+                        ShortDescriptionView(qrCode: $qrCode, qrCodeSupplyProductData: .constant(nil), qrCodeSupplyData: $qrCodeSupplyData)
                             .frame(height: 200, alignment: .center)
                     } else {
                         VStack {
-                            Text(qrCode ?? "No Data")
+                            Text(qrCode ?? "Data will be displayed here")
                             if qrCode != nil {
                                 Button (action: {
                                     do {
@@ -120,9 +119,7 @@ struct ScannerTabView: View {
 }
 
 let testSupplyDataForQR = "{\"id\": \"5859013b-6bda-4379-940e-08d9baf5a5e7\"}"
-let testSupplyProductDataForQR = "{\"id\": \"1f3420b1-76a6-4667-997a-08d9baf49237\",  \"productCreatedDate\": \"2021-11-09T16:30:34\"}"
-
-//let testD = Dataa(id: 1, name: "Rorrrrrrr", desc: "Longds lsdkfk lsdkfl dslf ldksfl dsfkl j sdkdjsjdf jsdfjkjsdkfj kjsdf j sdf sdf sdf kfj ksjf jsdfk jksdf jks sjk jsk jdkfffds", date: Date(), num: 5, unit: "kg", shelfLife: 743.4)
+let testSupplyProductDataForQR = "{\"id\": \"6913b39b-b306-40dc-9979-08d9baf49237\",\"productCreatedDate\": \"2021-11-09T16:30:34\"}"
 
 struct ScannerTabView_Previews: PreviewProvider {
     static var previews: some View {

@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-//struct Dataa {
-//    let id: Int
-//    let name: String
-//    let desc: String
-//    let date: Date
-//    let num: Double
-//    let unit: String
-//    let shelfLife: TimeInterval
-//}
 
 struct ShortDescriptionView: View {
     
@@ -25,8 +16,14 @@ struct ShortDescriptionView: View {
         return formatter
     }
     
+    @Binding var qrCode: String?
     @Binding var qrCodeSupplyProductData: SupplyProductModel?
     @Binding var qrCodeSupplyData: SupplyModel?
+    
+    @State var showSupplyProductDiscardingAlert: Bool = false
+    @State var showSupplyDiscardAlert: Bool = false
+    @State var showSupplyProductReceivedAlert: Bool = false
+    @State var showSupplyReceivedAlert: Bool = false
     
     var body: some View {
         List {
@@ -57,8 +54,7 @@ struct ShortDescriptionView: View {
                                 switch result {
                                     
                                 case .success:
-                                    // TODO: - perform actions
-                                    break
+                                    showSupplyProductReceivedAlert = true
                                     
                                 case .failure(let error):
                                     print(error)
@@ -74,11 +70,26 @@ struct ShortDescriptionView: View {
                 }
                 .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                     Button {
-                        print("2") // TODO: Show Alert about bad data and Clean lower part of ScannerTabView
+                        showSupplyProductDiscardingAlert = true
                     } label: {
                         Image(systemName: "x.circle")
                     }
                     .tint(.red)
+                }
+                .alert("Are you sure you want to discard Supply Product?", isPresented: $showSupplyProductDiscardingAlert) {
+                    Button("Yes") {
+                        qrCodeSupplyProductData = nil
+                        qrCodeSupplyData = nil
+                        qrCode = nil
+                    }
+                    Button("Cancel", role: .cancel){ }
+                }
+                .alert("Supply product successfully received!", isPresented: $showSupplyProductReceivedAlert) {
+                    Button("Okay") {
+                        qrCode = nil
+                        qrCodeSupplyData = nil
+                        qrCodeSupplyProductData = nil
+                    }
                 }
                 .frame(height: 200)
             } else {
@@ -100,8 +111,7 @@ struct ShortDescriptionView: View {
                                        switch result {
                                            
                                        case .success:
-                                           // TODO: - perform actions
-                                           break
+                                           showSupplyReceivedAlert = true
                                            
                                        case .failure(let error):
                                            print(error)
@@ -116,11 +126,26 @@ struct ShortDescriptionView: View {
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                         Button {
-                            print("4") // TODO: Show Alert about bad data and Clean lower part of ScannerTabView
+                            showSupplyDiscardAlert = true
                         } label: {
                             Image(systemName: "x.circle")
                         }
                         .tint(.red)
+                    }
+                    .alert("Are you sure you want to discard Supply?", isPresented: $showSupplyDiscardAlert) {
+                        Button("Yes") {
+                            qrCode = nil
+                            qrCodeSupplyData = nil
+                            qrCodeSupplyProductData = nil
+                        }
+                        Button("Cancel", role: .cancel){ }
+                    }
+                    .alert("Supply successfully received!", isPresented: $showSupplyReceivedAlert) {
+                        Button("Okay") {
+                            qrCode = nil
+                            qrCodeSupplyData = nil
+                            qrCodeSupplyProductData = nil
+                        }
                     }
                     .frame(height: 200)
                 } else {
