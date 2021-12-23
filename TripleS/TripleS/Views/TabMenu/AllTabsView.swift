@@ -16,7 +16,8 @@ struct AllTabsView: View {
         TabView(selection: $selection) {
             // 1
             NavigationView {
-                WarehouseView()
+                //WarehouseView()
+                WarehousesView()
             }.tabItem {
                 Image(systemName: "house")
                 Text("Warehouse")
