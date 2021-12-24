@@ -58,7 +58,7 @@ struct SingleWarehouseView: View {
     }
 }
 
-let testBoxes = [Box(id: "1", name: "1", supplyProduct: "1")]
+let testBoxes = [Box(id: "1", warehouseId: "1", productName: "prodName", spoilDate: Date(), count: 4, unit: "kg")]
 
 struct SingleWarehouseView_Previews: PreviewProvider {
     static var previews: some View {
