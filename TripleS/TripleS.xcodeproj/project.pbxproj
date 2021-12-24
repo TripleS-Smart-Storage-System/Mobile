@@ -51,6 +51,8 @@
 		0DC5FDA0275EA4B8008A5893 /* URLRequest+setToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5FD9F275EA4B8008A5893 /* URLRequest+setToken.swift */; };
 		0DC5FDA4275EA727008A5893 /* QRCodeProcessorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5FDA3275EA727008A5893 /* QRCodeProcessorProtocol.swift */; };
 		0DC5FDA6275EA72F008A5893 /* QRCodeProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5FDA5275EA72F008A5893 /* QRCodeProcessor.swift */; };
+		0DDDB23A27752A4100C7ADAA /* WarehousesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDDB23927752A4100C7ADAA /* WarehousesWorker.swift */; };
+		0DDDB23C27752A4E00C7ADAA /* WarehousesWorkerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDDB23B27752A4E00C7ADAA /* WarehousesWorkerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +100,8 @@
 		0DC5FD9F275EA4B8008A5893 /* URLRequest+setToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+setToken.swift"; sourceTree = "<group>"; };
 		0DC5FDA3275EA727008A5893 /* QRCodeProcessorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeProcessorProtocol.swift; sourceTree = "<group>"; };
 		0DC5FDA5275EA72F008A5893 /* QRCodeProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeProcessor.swift; sourceTree = "<group>"; };
+		0DDDB23927752A4100C7ADAA /* WarehousesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehousesWorker.swift; sourceTree = "<group>"; };
+		0DDDB23B27752A4E00C7ADAA /* WarehousesWorkerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehousesWorkerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +269,7 @@
 		0D4790252742D4F900E7C9D0 /* Repos */ = {
 			isa = PBXGroup;
 			children = (
+				0DDDB23827752A2B00C7ADAA /* WarehousesWorker */,
 				0D47902A2742D90F00E7C9D0 /* AccountRepo */,
 				0DC5FDA1275EA517008A5893 /* Extensions */,
 				0D47902D2747CB6100E7C9D0 /* RolesRepo */,
@@ -328,6 +333,15 @@
 				0D1665AD274DB06300E110B6 /* SharedRequestBuilder.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		0DDDB23827752A2B00C7ADAA /* WarehousesWorker */ = {
+			isa = PBXGroup;
+			children = (
+				0DDDB23927752A4100C7ADAA /* WarehousesWorker.swift */,
+				0DDDB23B27752A4E00C7ADAA /* WarehousesWorkerProtocol.swift */,
+			);
+			path = WarehousesWorker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +440,7 @@
 				05D4C9552774C83800A9402A /* WarehousesView.swift in Sources */,
 				0563277D2731BE8500388A4B /* TripleSApp.swift in Sources */,
 				0D4790292742D5F000E7C9D0 /* SharedAPIConfiguration.swift in Sources */,
+				0DDDB23C27752A4E00C7ADAA /* WarehousesWorkerProtocol.swift in Sources */,
 				0D1665A1274D9CAF00E110B6 /* AllTabsView.swift in Sources */,
 				0D4790272742D56300E7C9D0 /* AccountRepo.swift in Sources */,
 				0D1665A5274D9CCB00E110B6 /* WarehouseView.swift in Sources */,
@@ -437,6 +452,7 @@
 				0535897A274D5DA900FBB5DF /* ProfileChangeError.swift in Sources */,
 				0524EC17275D716B00134A0C /* SupplyProductRepo.swift in Sources */,
 				0D049195275FE7B800C269C1 /* SharedProperties.swift in Sources */,
+				0DDDB23A27752A4100C7ADAA /* WarehousesWorker.swift in Sources */,
 				0D1665A3274D9CC100E110B6 /* PasswordView.swift in Sources */,
 				0524EC14275D4A3800134A0C /* SupplyWorkerProtocol.swift in Sources */,
 				0D16659F274D9CAF00E110B6 /* CreateNewSupplyView.swift in Sources */,

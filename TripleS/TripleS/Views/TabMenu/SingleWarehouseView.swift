@@ -50,12 +50,6 @@ struct SingleWarehouseView: View {
     }
 }
 
-struct Box: Identifiable {
-    let id: String
-    let name: String
-    let supplyProduct: String
-}
-
 let testBoxes = [Box(id: "1", name: "1", supplyProduct: "1")]
 
 struct SingleWarehouseView_Previews: PreviewProvider {
