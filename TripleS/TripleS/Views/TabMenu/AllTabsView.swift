@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AllTabsView: View {
     
-    @State var selection = 3
+    @State var selection = 2
     @State var isAnimating = true
     
     var body: some View {
@@ -26,39 +26,21 @@ struct AllTabsView: View {
             
             // 2
             NavigationView {
-                Text("Second")
-            }.tabItem {
-                Image(systemName: "timer")
-                Text("Expire date")
-            }
-            .tag(2)
-            
-            // 3
-            NavigationView {
                 ScannerTabView()
             }.tabItem {
                 Image(systemName: "qrcode.viewfinder")
                 Text("QR code")
             }
-            .tag(3)
+            .tag(2)
             
-            // 4
-            NavigationView {
-                Text("Forth")
-            }.tabItem {
-                Image(systemName: "list.bullet.rectangle.portrait")
-                Text("Catalog")
-            }
-            .tag(4)
-            
-            // 5
+            // 3
             NavigationView {
                 ProfileView(user: accountWorker.profile ?? currentDefaultUser)
             }.tabItem {
                 Image(systemName: "person.fill")
                 Text("Profile")
             }
-            .tag(5)
+            .tag(3)
         }
     }
 }

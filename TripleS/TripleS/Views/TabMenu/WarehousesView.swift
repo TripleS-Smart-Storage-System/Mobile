@@ -45,17 +45,6 @@ struct WarehousesView: View {
                         }
                         
                     }
-                    // put api for receiving warehouses here
-//                    supplyWorker.postSupplyProductReceived(for: "", dateOfCreation: Date()) { result in
-//                        switch result {
-//                        case .success:
-//                            //warehouses = warehouses
-//                            isLoading = false
-//
-//                        case .failure(let error):
-//                            print(error)
-//                        }
-//                    }
                 }
         }
     }

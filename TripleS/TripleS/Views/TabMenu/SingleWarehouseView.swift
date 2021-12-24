@@ -15,23 +15,64 @@ struct SingleWarehouseView: View {
     }
     
     @State var isLoading: Bool = true
-    @State var boxes: [Box] = []
+    @State var boxes: [Box] = testBoxes
+    
+    @State var isLoadingUseBox: Bool = false
+    @State var isLoadingWriteOff: Bool = false
+    
+    @State var boxRequiredId: String = ""
     
     let warehouseId: String
     let email: String
+    
+    private func updateUI() {
+        WarehouseRepo().fetchBoxes(for: warehouseId) { result in
+            switch result {
+            case .success(let boxes):
+                self.boxes = boxes
+                isLoading = false
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     var body: some View {
         if !isLoading {
             List {
                 ForEach(boxes) { box in
-                    
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(box.productName)
-                            .font(.title)
-                        Text(String(box.count) + " " + box.unit)
-                            .font(.title2)
-                        Text(getDateFormatter().string(from: box.spoilDate))
-                            .font(.title2)
+                    HStack(spacing: 20) {
+                        Button("Use") {
+                            WarehouseRepo().performWriteOff(id: box.id, count: 1) { result in
+                                switch result {
+                                case .success:
+                                    updateUI()
+                                case .failure:
+                                    print("error")
+                                }
+                            }
+                        }
+                        .tint(.green)
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(box.productName)
+                                .font(.title)
+                            Text(String(box.count) + " " + box.unit)
+                                .font(.title2)
+                            Text(getDateFormatter().string(from: box.spoilDate))
+                                .font(.title2)
+                        }
+                        Spacer()
+                        Button("Write off") {
+                            WarehouseRepo().performUseBox(id: box.id) { result in
+                                switch result {
+                                case .success:
+                                    updateUI()
+                                case .failure:
+                                    print("error")
+                                }
+                            }
+                        }
+                        .tint(.red)
                     }
                 }
             }
@@ -43,7 +84,6 @@ struct SingleWarehouseView: View {
                 .scaleEffect(4, anchor: .center)
                 .frame(height: 200, alignment: .center)
                 .onAppear {
-                    // put api for receiving boxes from warehouse with id ((warehouseid)/boxes)
                     WarehouseRepo().fetchBoxes(for: warehouseId) { result in
                         switch result {
                         case .success(let boxes):
@@ -55,7 +95,6 @@ struct SingleWarehouseView: View {
                     }
                 }
         }
-        
     }
 }
 
