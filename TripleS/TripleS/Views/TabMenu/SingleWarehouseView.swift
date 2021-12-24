@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct SingleWarehouseView: View {
+    private func getDateFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd / MM / YYYY"
+        return formatter
+    }
+    
     @State var isLoading: Bool = false
     
     var boxes: [Box] = testBoxes
@@ -18,10 +24,12 @@ struct SingleWarehouseView: View {
             List {
                 ForEach(boxes) { box in
                     
-                    VStack {
-                        Text(box.name)
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(box.productName)
                             .font(.title)
-                        Text(box.supplyProduct)
+                        Text(String(box.count) + " " + box.unit)
+                            .font(.title2)
+                        Text(getDateFormatter().string(from: box.spoilDate))
                             .font(.title2)
                     }
                 }
@@ -51,12 +59,14 @@ struct SingleWarehouseView: View {
 }
 
 struct Box: Identifiable {
-    let id: String
-    let name: String
-    let supplyProduct: String
+    let id: String // id
+    let productName: String // supplyProduct.product.name
+    let spoilDate: Date // spoilDate
+    let count: Int //countLeft
+    let unit: String // supplyProduct.product.unit.name
 }
 
-let testBoxes = [Box(id: "1", name: "1", supplyProduct: "1")]
+let testBoxes = [Box(id: "1", productName: "ProductName", spoilDate: Date(), count: 4, unit: "kg")]
 
 struct SingleWarehouseView_Previews: PreviewProvider {
     static var previews: some View {
