@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 public protocol SupplyAPIProtocol: AnyObject {
     
     func getSupply(

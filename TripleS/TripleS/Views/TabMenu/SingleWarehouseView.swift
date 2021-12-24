@@ -58,15 +58,7 @@ struct SingleWarehouseView: View {
     }
 }
 
-struct Box: Identifiable {
-    let id: String // id
-    let productName: String // supplyProduct.product.name
-    let spoilDate: Date // spoilDate
-    let count: Int //countLeft
-    let unit: String // supplyProduct.product.unit.name
-}
-
-let testBoxes = [Box(id: "1", productName: "ProductName", spoilDate: Date(), count: 4, unit: "kg")]
+let testBoxes = [Box(id: "1", name: "1", supplyProduct: "1")]
 
 struct SingleWarehouseView_Previews: PreviewProvider {
     static var previews: some View {

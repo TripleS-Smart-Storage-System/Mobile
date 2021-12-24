@@ -9,10 +9,11 @@ public enum SharedAPIConfiguration {
     static let product: String = "Product"
     static let role: String = "Role"
     static let unit: String = "Unit"
-    static let user: String = "User"
+    static let users: String = "Users"
     static let supply: String = "Supply"
     static let supplyProduct: String = "supply-product"
     static let supplyProducts: String = "supply-products"
+    static let warehouses: String = "WareHouses"
     
     static let login: String = "login"
     static let register: String = "register"
@@ -20,7 +21,7 @@ public enum SharedAPIConfiguration {
     
     static let roles: String = "roles"
     static let units: String = "units"
-    static let users: String = "users"
+//    static let users: String = "users"
 }
 
 // MARK: - Public JSON coders

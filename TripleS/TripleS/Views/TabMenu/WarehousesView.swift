@@ -50,12 +50,6 @@ struct WarehousesView: View {
     }
 }
 
-struct Warehouse: Identifiable {
-    let id: String
-    let address: String
-    let email: String
-}
-
 let testWarehouses = [Warehouse(id: "1", address: "1", email: "1"), Warehouse(id: "2", address: "2", email: "2"), Warehouse(id: "3", address: "3", email: "3")]
 
 struct WarehousesView_Previews: PreviewProvider {

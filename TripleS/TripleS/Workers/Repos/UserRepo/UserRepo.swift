@@ -14,7 +14,7 @@ public class UserRepo {
     
     private let session = URLSession.shared
     
-    private let sharedBaseUrl: String = "\(SharedAPIConfiguration.baseUrl)/\(SharedAPIConfiguration.api)/\(SharedAPIConfiguration.user)"
+    private let sharedBaseUrl: String = "\(SharedAPIConfiguration.baseUrl)/\(SharedAPIConfiguration.api)/\(SharedAPIConfiguration.users)"
 }
 
 // MARK: - Private methods
