@@ -23,14 +23,7 @@ private extension UserRepo {
         for id: String,
         completion: @escaping (Result<UserModel, Error>) -> Void
     ) {
-        var urlComponents = URLComponents(string: self.sharedBaseUrl)
-        urlComponents?.queryItems = [
-            .init(name: "id", value: id)
-        ]
-        
-//        urlComponents?.percentEncodedQuery = urlComponents?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
-        
-        guard let url = urlComponents?.url
+        guard let url = URL(string: "\(self.sharedBaseUrl)/\(id)")
         else {
             completion(.failure(UserRepoError.cannotCastToUrl))
             return

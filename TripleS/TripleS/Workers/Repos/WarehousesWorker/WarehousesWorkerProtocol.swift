@@ -16,12 +16,12 @@ public protocol WarehouseAPIProtocol: AnyObject {
     )
     
     func performUseBox(
-        for id: String,
+        id: String,
         completion: @escaping (Result<Void, Error>) -> Void
     )
     
     func performWriteOff(
-        for id: String,
+        id: String,
         count: Int,
         completion: @escaping (Result<Void, Error>) -> Void
     )

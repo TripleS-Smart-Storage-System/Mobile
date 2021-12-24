@@ -8,42 +8,42 @@
 import SwiftUI
 
 struct WarehousesView: View {
-    @State var isLoading: Bool = false
+    @State var isLoading: Bool = true
     
-    var warehouses: [Warehouse] = testWarehouses
+    @State var warehouses : [Warehouse] = []
     
     var body: some View {
         if !isLoading {
             List {
                 ForEach(warehouses) { warehouse in
                     NavigationLink {
-                        SingleWarehouseView(warehouseId: warehouse.id) // here you can pass data for next view
+                        SingleWarehouseView(warehouseId: warehouse.id, email: warehouse.email)
                     } label: {
-                        VStack {
+                        VStack(alignment: .leading, spacing: 20) {
                             Text(warehouse.address)
-                                .font(.title)
-                            Text(warehouse.email)
                                 .font(.title2)
+                            Text("Email: \(warehouse.email)")
+                                .font(.title3)
                         }
                     }
                 }
             }
+            .navigationTitle("Warehouses")
         } else {
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle())
                 .scaleEffect(4, anchor: .center)
                 .frame(height: 200, alignment: .center)
                 .onAppear {
-                    // put api for receiving warehouses here
-                    supplyWorker.postSupplyProductReceived(for: "", dateOfCreation: Date()) { result in
+                    WarehouseRepo().fetchWarehouses { result in
                         switch result {
-                        case .success:
-                            //warehouses = warehouses
+                        case .success(let warehouses):
+                            self.warehouses = warehouses
                             isLoading = false
-                            
                         case .failure(let error):
                             print(error)
                         }
+                        
                     }
                 }
         }

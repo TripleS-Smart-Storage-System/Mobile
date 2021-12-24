@@ -162,7 +162,7 @@ private extension WarehouseRepo {
     }
         
     func postUseBox(
-        for id: String,
+        id: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
         let stringURL: String = "\(self.sharedBaseUrl)/\(self.boxes)/\(self.writeOff)/\(id)"
@@ -207,7 +207,7 @@ private extension WarehouseRepo {
     }
     
     func postWriteOffBox(
-        for id: String,
+        id: String,
         count: Int,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
@@ -273,24 +273,24 @@ extension WarehouseRepo: WarehouseAPIProtocol {
     }
     
     public func performUseBox(
-        for id: String,
+        id: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
         
         self.postUseBox(
-            for: id,
+            id: id,
             completion: completion
         )
     }
     
     public func performWriteOff(
-        for id: String,
+        id: String,
         count: Int,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
         
         self.postWriteOffBox(
-            for: id,
+            id: id,
             count: count,
             completion: completion
         )
