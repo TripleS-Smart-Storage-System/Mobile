@@ -14,11 +14,12 @@ struct SingleWarehouseView: View {
         return formatter
     }
     
-    @State var isLoading: Bool = false
-    
-    var boxes: [Box] = testBoxes
+    @State var isLoading: Bool = true
+    @State var boxes: [Box] = []
     
     let warehouseId: String
+    let email: String
+    
     var body: some View {
         if !isLoading {
             List {
@@ -34,6 +35,7 @@ struct SingleWarehouseView: View {
                     }
                 }
             }
+            .navigationTitle(email)
         }
         else {
             ProgressView()
@@ -42,12 +44,11 @@ struct SingleWarehouseView: View {
                 .frame(height: 200, alignment: .center)
                 .onAppear {
                     // put api for receiving boxes from warehouse with id ((warehouseid)/boxes)
-                    supplyWorker.postSupplyProductReceived(for: "", dateOfCreation: Date()) { result in
+                    WarehouseRepo().fetchBoxes(for: warehouseId) { result in
                         switch result {
-                        case .success:
-                            //boxes = boxes
+                        case .success(let boxes):
+                            self.boxes = boxes
                             isLoading = false
-                            
                         case .failure(let error):
                             print(error)
                         }
@@ -62,6 +63,6 @@ let testBoxes = [Box(id: "1", warehouseId: "1", productName: "prodName", spoilDa
 
 struct SingleWarehouseView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleWarehouseView(warehouseId: "1")
+        SingleWarehouseView(warehouseId: "1", email: "example.com")
     }
 }

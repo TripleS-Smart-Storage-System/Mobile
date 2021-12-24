@@ -17,7 +17,7 @@ struct WarehousesView: View {
             List {
                 ForEach(warehouses) { warehouse in
                     NavigationLink {
-                        SingleWarehouseView(warehouseId: warehouse.id)
+                        SingleWarehouseView(warehouseId: warehouse.id, email: warehouse.email)
                     } label: {
                         VStack(alignment: .leading, spacing: 20) {
                             Text(warehouse.address)
